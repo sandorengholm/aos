@@ -3,14 +3,14 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import ListsScreen from './app/screens/ListsScreen';
-import BattleplansTab from './app/screens/BattleplansScreen';
-import RulesTab from './app/screens/RulesScreen';
-import FactionsScreen from './app/screens/factions/FactionsScreen';
-import WarscrollsScreen from './app/screens/warscrolls/WarscrollsScreen';
+import ListsScreen from './screens/ListsScreen';
+import BattleplansTab from './screens/BattleplansScreen';
+import RulesTab from './screens/RulesScreen';
+import FactionsScreen from './screens/factions/FactionsScreen';
+import WarscrollsScreen from './screens/warscrolls/WarscrollsScreen';
 import { useColorScheme } from 'react-native';
-import { CustomDarkTheme } from './app/themes/dark';
-import { CustomDefaultTheme } from './app/themes/light';
+import { CustomDarkTheme } from './themes/dark';
+import { CustomDefaultTheme } from './themes/light';
 import { StatusBar } from 'expo-status-bar';
 
 const Tab = createBottomTabNavigator();
@@ -68,6 +68,9 @@ const App = () => {
                 : CustomDefaultTheme.colors.text,
             labelStyle: {
               fontSize: 9,
+            },
+            tabStyle: {
+              paddingBottom: 5,
             },
           }}
         >
