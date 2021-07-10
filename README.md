@@ -24,4 +24,4 @@
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
-> _Author: Sandor Engholam_
+> _Author: Sandor Engholm_
