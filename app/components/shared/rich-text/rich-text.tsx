@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 import HTML from 'react-native-render-html';
 import { sizes } from '../../../helpers/sizes';
 import useCustomTheme from '../../../hooks/useCustomTheme';
@@ -8,18 +8,21 @@ import { CustomTheme } from '../../../models/theme';
 
 interface RichText {
   text: IRichText;
+  containerStyle?: StyleProp<ViewStyle>;
 }
 
-const RichText: React.FC<RichText> = ({ text }) => {
+const RichText: React.FC<RichText> = ({ text, containerStyle }) => {
   const theme = useCustomTheme();
   const styles = themedStyles(theme);
 
   return (
-    <HTML
-      source={{ html: text.html }}
-      baseFontStyle={styles.base}
-      tagsStyles={{ p: styles.p }}
-    />
+    <View style={containerStyle}>
+      <HTML
+        source={{ html: text.html }}
+        baseFontStyle={styles.base}
+        tagsStyles={{ p: styles.p }}
+      />
+    </View>
   );
 };
 

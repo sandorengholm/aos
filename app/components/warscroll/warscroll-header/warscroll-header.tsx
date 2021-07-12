@@ -4,6 +4,7 @@ import { sizes } from '../../../helpers/sizes';
 import useCustomTheme from '../../../hooks/useCustomTheme';
 import { IImage } from '../../../models/shared';
 import { CustomTheme } from '../../../models/theme';
+import Title from '../../shared/title';
 
 interface WarscrollHeader {
   name: string;
@@ -22,7 +23,7 @@ const WarscrollHeader: React.FC<WarscrollHeader> = ({
   return (
     <View style={styles.container}>
       <View style={styles.textContainer}>
-        <Text style={styles.name}>{name}</Text>
+        <Title text={name} />
         <Text style={styles.flavorText}>{flavorText}</Text>
       </View>
       <Image source={{ uri: image.url }} style={styles.image} />
@@ -51,12 +52,6 @@ const themedStyles = (theme: CustomTheme) =>
     },
     textContainer: {
       flexShrink: 1,
-    },
-    name: {
-      color: theme.colors.text,
-      fontSize: sizes.font.medium,
-      fontWeight: 'bold',
-      marginBottom: sizes.spacing(2),
     },
   });
 

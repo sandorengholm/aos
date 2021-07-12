@@ -5,57 +5,58 @@ import useCustomTheme from '../../../hooks/useCustomTheme';
 import { IFactionSubfaction } from '../../../models/faction';
 import { CustomTheme } from '../../../models/theme';
 import ContentItem from '../../shared/content-item';
+import RichText from '../../shared/rich-text';
 import Rule from '../../shared/rule';
 
 const FactionSubfactionItem: React.FC<IFactionSubfaction> = ({
-  name,
   abilities,
   commandAbilities,
-  commandTraits,
-  artefactsOfPower,
+  commandTraitDescription,
+  commandTrait,
+  artefactOfPowerDescription,
+  artefactOfPower,
 }) => {
-  const theme = useCustomTheme();
-  const styles = themedStyles(theme);
-
   return (
-    <ContentItem title={name}>
-      <View style={styles.container}>
-        <ContentItem title="Abilities">
-          {abilities.map((ability, index) => (
-            <Rule key={index} rule={ability} />
-          ))}
-        </ContentItem>
+    <>
+      <ContentItem title="Abilities">
+        {abilities.map((ability, index) => (
+          <Rule key={index} rule={ability} />
+        ))}
+      </ContentItem>
 
-        <ContentItem title="Command Abilities">
-          {commandAbilities.map((commandAbility, index) => (
-            <Rule key={index} rule={commandAbility} />
-          ))}
-        </ContentItem>
+      <ContentItem title="Command Abilities">
+        {commandAbilities.map((commandAbility, index) => (
+          <Rule key={index} rule={commandAbility} />
+        ))}
+      </ContentItem>
 
-        <ContentItem title="Command Traits">
-          {commandTraits.map((commandTrait, index) => (
-            <Rule key={index} rule={commandTrait} />
-          ))}
+      {commandTrait && (
+        <ContentItem title="Command Trait">
+          <RichText
+            containerStyle={styles.descriptionContainer}
+            text={commandTraitDescription}
+          />
+          <Rule rule={commandTrait} />
         </ContentItem>
+      )}
 
-        <ContentItem title="Artefacts Of Power">
-          {artefactsOfPower.map((artefactOfPower, index) => (
-            <Rule key={index} rule={artefactOfPower} />
-          ))}
+      {artefactOfPower && (
+        <ContentItem title="Artefact Of Power">
+          <RichText
+            containerStyle={styles.descriptionContainer}
+            text={artefactOfPowerDescription}
+          />
+          <Rule rule={artefactOfPower} />
         </ContentItem>
-      </View>
-    </ContentItem>
+      )}
+    </>
   );
 };
 
-const themedStyles = (theme: CustomTheme) =>
-  StyleSheet.create({
-    container: {
-      borderWidth: 1,
-      borderColor: theme.colors.border,
-      marginBottom: sizes.spacing(2),
-      padding: sizes.spacing(2),
-    },
-  });
+const styles = StyleSheet.create({
+  descriptionContainer: {
+    marginBottom: sizes.spacing(2),
+  },
+});
 
 export default React.memo(FactionSubfactionItem);

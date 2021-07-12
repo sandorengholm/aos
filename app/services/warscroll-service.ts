@@ -245,54 +245,84 @@ export const getListOfFactions = async () => {
                   }
                   subfactions {
                       ... on Subfaction {
-                          id
-                          name
-                          abilities {
+                        id
+                        name
+                        abilities {
                             ... on Ability {
-                              name,
-                              flavorText
-                              description {
-                                  html
-                              }
-                              designersNote
+                                name,
+                                flavorText
+                                description {
+                                    html
+                                }
+                                designersNote
                             }
-                          }
-                          commandAbilities {
+                        }
+                        commandAbilities {
                             ... on CommandAbility {
-                              name,
-                              flavorText
-                              description {
-                                  html
-                              }
-                              designersNote
+                            name,
+                            flavorText
+                            description {
+                                html
                             }
-                          }
-                          commandTraits {
+                            designersNote
+                            }
+                        }
+                        commandTraitDescription {
+                            html
+                        }
+                        commandTrait {
                             ... on CommandTrait {
-                              name,
-                              flavorText
-                              description {
-                                  html
-                              }
-                              designersNote
+                            name,
+                            flavorText
+                            description {
+                                html
                             }
-                          }
-                          artefactsOfPower {
+                            designersNote
+                            }
+                        }
+                        artefactOfPowerDescription {
+                            html
+                        }
+                        artefactOfPower {
                             ... on ArtefactOfPower {
-                              name,
-                              flavorText
-                              description {
-                                  html
-                              }
-                              designersNote
+                            name,
+                            flavorText
+                            description {
+                                html
                             }
-                          }
+                            designersNote
+                            }
+                        }
                       }
                   }
                   factionTerrainRules {
                       ... on FactionTerrainRule {
                           id
                           name
+                          flavorText
+                          description {
+                              html
+                          }
+                          sceneryWarscroll {
+                              ... on SceneryWarscroll {
+                                  name
+                                  flavorText
+                                  image {
+                                      url
+                                  }
+                                  sceneryRules {
+                                      ... on Ability {
+                                        name,
+                                        flavorText
+                                        description {
+                                            html
+                                        }
+                                        designersNote
+                                    }
+                                  }
+                                  keywords
+                              }
+                          }
                       }
                   }
                   commandTraitDescription {

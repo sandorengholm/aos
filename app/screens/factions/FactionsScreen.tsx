@@ -4,7 +4,7 @@ import FactionListScreen from './FactionListScreen';
 import FactionDetailsScreen from './FactionDetailsScreen';
 import FactionDetailsBattleTraitsScreen from './FactionDetailsBattleTraitsScreen';
 import FactionDetailsSubfactionsScreen from './FactionDetailsSubfactionsScreen';
-import { IFaction } from '../../models/faction';
+import { IFaction, IFactionSubfaction } from '../../models/faction';
 import FactionDetailsWarscrolls from './FactionDetailsWarscrolls';
 import FactionDetailsFactionTerrainRules from './FactionDetailsFactionTerrainRules';
 import FactionDetailsCommandTraits from './FactionDetailsCommandTraits';
@@ -12,6 +12,7 @@ import FactionDetailsArtefactsOfPower from './FactionDetailsArtefactsOfPower';
 import FactionDetailsSpellLores from './FactionDetailsSpellLores';
 import WarscrollDetailsScreen from '../warscrolls/WarscrollDetailsScreen';
 import { IWarscroll } from '../../models/warscroll';
+import FactionDetailsSubfactionDetailsScreen from './FactionDetailsSubfactionDetailsScreen';
 
 export type FactionsRootStackParamList = {
   FactionList: undefined;
@@ -24,6 +25,10 @@ export type FactionsRootStackParamList = {
   };
   FactionDetailsSubfactions: {
     faction: IFaction;
+    title: string;
+  };
+  FactionDetailsSubfactionDetails: {
+    subfaction: IFactionSubfaction;
     title: string;
   };
   FactionDetailsWarscrolls: {
@@ -75,6 +80,14 @@ const FactionsScreen = () => {
         name="FactionDetailsSubfactions"
         component={FactionDetailsSubfactionsScreen}
         options={({ route }) => ({ title: route.params.title })}
+      />
+      <Stack.Screen
+        name="FactionDetailsSubfactionDetails"
+        component={FactionDetailsSubfactionDetailsScreen}
+        options={({ route }) => ({
+          title: route.params.title,
+          headerBackTitle: '',
+        })}
       />
       <Stack.Screen
         name="FactionDetailsWarscrolls"

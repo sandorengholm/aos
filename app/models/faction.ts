@@ -37,14 +37,26 @@ export interface IFactionSubfaction {
   image: IImage;
   abilities: IAbility[];
   commandAbilities: ICommandAbility[];
-  commandTraits: ICommandTrait[];
-  artefactsOfPower: IArtefactOfPower[];
+  commandTraitDescription: IRichText;
+  commandTrait: ICommandTrait;
+  artefactOfPowerDescription: IRichText;
+  artefactOfPower: IArtefactOfPower;
 }
 
 export interface IFactionTerrainRule {
   name: string;
   flavorText: string;
   description: IRichText;
+  sceneryWarscroll: IFactionSceneryWarscroll;
+}
+
+export interface IFactionSceneryWarscroll {
+  name: string;
+  flavorText: string;
+  description: IRichText;
+  image: IImage;
+  sceneryRules: IAbility[];
+  keywords: string[];
 }
 
 export interface IFactionEnhancementGroup {
