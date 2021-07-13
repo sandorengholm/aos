@@ -1,11 +1,9 @@
 import { StackScreenProps } from '@react-navigation/stack';
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import FactionSceneryWarscroll from '../../components/faction/faction-scenery-warscroll';
 import CustomScrollView from '../../components/shared/custom-scroll-view';
 import RichText from '../../components/shared/rich-text';
 import Title from '../../components/shared/title';
-import { sizes } from '../../helpers/sizes';
 import { FactionsRootStackParamList } from './FactionsScreen';
 
 type Props = StackScreenProps<
@@ -24,10 +22,7 @@ const FactionDetailsFactionTerrainRulesScreen = ({ route }: Props) => {
         <React.Fragment key={index}>
           <Title text={factionTerrainRule.name} />
 
-          <RichText
-            containerStyle={styles.descriptionContainer}
-            text={factionTerrainRule.description}
-          />
+          <RichText hasMargin={true} text={factionTerrainRule.description} />
 
           <FactionSceneryWarscroll
             sceneryWarscroll={factionTerrainRule.sceneryWarscroll}
@@ -37,11 +32,5 @@ const FactionDetailsFactionTerrainRulesScreen = ({ route }: Props) => {
     </CustomScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  descriptionContainer: {
-    marginBottom: sizes.spacing(2),
-  },
-});
 
 export default React.memo(FactionDetailsFactionTerrainRulesScreen);

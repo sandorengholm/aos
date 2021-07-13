@@ -1,6 +1,6 @@
 import { StackScreenProps } from '@react-navigation/stack';
 import React from 'react';
-import { Text } from 'react-native';
+import FactionEnhancementGroup from '../../components/faction/faction-enhancement-group';
 import CustomScrollView from '../../components/shared/custom-scroll-view';
 import { FactionsRootStackParamList } from './FactionsScreen';
 
@@ -17,7 +17,12 @@ const FactionDetailsSpellLoresScreen = ({ route }: Props) => {
   return (
     <CustomScrollView>
       {faction.spellLores.map((spellLore, index) => (
-        <Text key={index}>{spellLore.name}</Text>
+        <FactionEnhancementGroup
+          key={index}
+          name={spellLore.name}
+          description={spellLore.description}
+          enchancements={spellLore.enhancements}
+        />
       ))}
     </CustomScrollView>
   );

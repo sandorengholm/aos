@@ -62,7 +62,5 @@ export interface IFactionSceneryWarscroll {
 export interface IFactionEnhancementGroup {
   name: string;
   description: IRichText;
-  commandTraits?: ICommandTrait[];
-  artefactsOfPower?: IArtefactOfPower[];
-  spellLores?: ISpell[];
+  enhancements?: ICommandTrait[] | IArtefactOfPower[] | ISpell[];
 }

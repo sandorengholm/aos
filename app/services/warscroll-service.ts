@@ -332,6 +332,19 @@ export const getListOfFactions = async () => {
                       ... on EnhancementGroup {
                           id
                           name
+                          description {
+                              html
+                          }
+                          enhancements {
+                              ... on CommandTrait {
+                                  name
+                                  flavorText
+                                  description {
+                                      html
+                                  }
+                                  designersNote
+                              }
+                          }
                       }
                   }
                   artefactsOfPowerDescription {
@@ -341,6 +354,19 @@ export const getListOfFactions = async () => {
                       ... on EnhancementGroup {
                           id
                           name
+                          description {
+                              html
+                          }
+                          enhancements {
+                              ... on ArtefactOfPower {
+                                  name
+                                  flavorText
+                                  description {
+                                      html
+                                  }
+                                  designersNote
+                              }
+                          }
                       }
                   }
                   spellLoresDescription {
@@ -350,6 +376,19 @@ export const getListOfFactions = async () => {
                       ... on EnhancementGroup {
                           id
                           name
+                          description {
+                              html
+                          }
+                          enhancements {
+                              ... on Spell {
+                                  name
+                                  flavorText
+                                  description {
+                                      html
+                                  }
+                                  designersNote
+                              }
+                          }
                       }
                   }
                 }

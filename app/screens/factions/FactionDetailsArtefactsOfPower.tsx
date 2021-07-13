@@ -1,6 +1,6 @@
 import { StackScreenProps } from '@react-navigation/stack';
 import React from 'react';
-import { Text } from 'react-native';
+import FactionEnhancementGroup from '../../components/faction/faction-enhancement-group';
 import CustomScrollView from '../../components/shared/custom-scroll-view';
 import { FactionsRootStackParamList } from './FactionsScreen';
 
@@ -17,7 +17,12 @@ const FactionDetailsArtefactsOfPowerScreen = ({ route }: Props) => {
   return (
     <CustomScrollView>
       {faction.artefactsOfPower.map((artefactOfPower, index) => (
-        <Text key={index}>{artefactOfPower.name}</Text>
+        <FactionEnhancementGroup
+          key={index}
+          name={artefactOfPower.name}
+          description={artefactOfPower.description}
+          enchancements={artefactOfPower.enhancements}
+        />
       ))}
     </CustomScrollView>
   );
