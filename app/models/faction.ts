@@ -13,7 +13,6 @@ import { IWarscroll } from './warscroll';
 export interface IFaction {
   id: string;
   name: string;
-  image: IImage;
   warscrolls: IWarscroll[];
   allies: IFaction[];
   canBeAlliedIn: IFaction[];

@@ -11,7 +11,7 @@ export const getListOfWarscrolls = async (): Promise<
         body: JSON.stringify({
           query: `#graphql
           {
-            factions {
+            factions(orderBy: name_ASC) {
               title: name
               data: warscrolls {
                 ... on Warscroll {
@@ -123,15 +123,12 @@ export const getListOfFactions = async () => {
         body: JSON.stringify({
           query: `#graphql
           {
-            grandAlliances {
+            grandAlliances(orderBy: name_ASC) {
               title: name
               data: factions {
                 ... on Faction {
                   id
                   name
-                  image {
-                      url
-                  }
                   grandAlliance {
                       ... on GrandAlliance {
                           name

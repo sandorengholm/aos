@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import HTML from 'react-native-render-html';
 import { sizes } from '../../../helpers/sizes';
 import useCustomTheme from '../../../hooks/useCustomTheme';
@@ -10,6 +10,8 @@ interface RichText {
   text: IRichText;
   hasMargin?: boolean;
 }
+
+// TODO: Make Rich Text Component support tables
 
 const RichText: React.FC<RichText> = ({ text, hasMargin }) => {
   const theme = useCustomTheme();
