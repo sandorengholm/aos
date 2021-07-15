@@ -22,9 +22,3 @@ export interface IRule {
   description: IRichText;
   designersNote: string;
 }
-
-export interface IAbility extends IRule {}
-export interface ISpell extends IRule {}
-export interface ICommandAbility extends IRule {}
-export interface ICommandTrait extends IRule {}
-export interface IArtefactOfPower extends IRule {}

@@ -5,40 +5,18 @@ import RichText from '../../shared/rich-text';
 import Rule from '../../shared/rule';
 
 const FactionSubfactionItem: React.FC<IFactionSubfaction> = ({
-  abilities,
-  commandAbilities,
-  commandTraitDescription,
-  commandTrait,
-  artefactOfPowerDescription,
-  artefactOfPower,
+  subfactionRulesets,
 }) => {
   return (
     <>
-      <ContentItem title="Abilities">
-        {abilities.map((ability, index) => (
-          <Rule key={index} rule={ability} />
-        ))}
-      </ContentItem>
-
-      <ContentItem title="Command Abilities">
-        {commandAbilities.map((commandAbility, index) => (
-          <Rule key={index} rule={commandAbility} />
-        ))}
-      </ContentItem>
-
-      {commandTrait && (
-        <ContentItem title="Command Trait">
-          <RichText hasMargin={true} text={commandTraitDescription} />
-          <Rule rule={commandTrait} />
+      {subfactionRulesets.map((subfactionRuleset, index) => (
+        <ContentItem key={index} title={subfactionRuleset.name}>
+          <RichText hasMargin={true} text={subfactionRuleset.description} />
+          {subfactionRuleset.rules.map((rule, index) => (
+            <Rule key={index} rule={rule} />
+          ))}
         </ContentItem>
-      )}
-
-      {artefactOfPower && (
-        <ContentItem title="Artefact Of Power">
-          <RichText hasMargin={true} text={artefactOfPowerDescription} />
-          <Rule rule={artefactOfPower} />
-        </ContentItem>
-      )}
+      ))}
     </>
   );
 };

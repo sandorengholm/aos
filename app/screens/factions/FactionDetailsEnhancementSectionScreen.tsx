@@ -6,26 +6,26 @@ import { FactionsRootStackParamList } from './FactionsScreen';
 
 type Props = StackScreenProps<
   FactionsRootStackParamList,
-  'FactionDetailsCommandTraits'
+  'FactionDetailsEnhancementSection'
 >;
 
-const FactionDetailsCommandTraitsScreen = ({ route }: Props) => {
-  const { faction } = route.params;
+const FactionDetailsEnhancementSectionScreen = ({ route }: Props) => {
+  const { enhancementSection } = route.params;
 
-  if (!faction?.commandTraits.length) return null;
+  if (!enhancementSection.enhancementGroups.length) return null;
 
   return (
     <CustomScrollView>
-      {faction.commandTraits.map((commandTrait, index) => (
+      {enhancementSection.enhancementGroups.map((enhancementGroup, index) => (
         <FactionEnhancementGroup
           key={index}
-          name={commandTrait.name}
-          description={commandTrait.description}
-          enchancements={commandTrait.enhancements}
+          name={enhancementGroup.name}
+          description={enhancementGroup.description}
+          enchancements={enhancementGroup.enhancements}
         />
       ))}
     </CustomScrollView>
   );
 };
 
-export default React.memo(FactionDetailsCommandTraitsScreen);
+export default React.memo(FactionDetailsEnhancementSectionScreen);

@@ -1,13 +1,4 @@
-import {
-  IAbility,
-  IArtefactOfPower,
-  ICommandAbility,
-  ICommandTrait,
-  IImage,
-  IRichText,
-  IRule,
-  ISpell,
-} from './shared';
+import { IImage, IRichText, IRule } from './shared';
 import { IWarscroll } from './warscroll';
 
 export interface IFaction {
@@ -19,27 +10,20 @@ export interface IFaction {
   battleTraits: IFactionBattleTrait[];
   subfactions: IFactionSubfaction[];
   factionTerrainRules: IFactionTerrainRule[];
-  commandTraits: IFactionEnhancementGroup[];
-  commandTraitDescription: IRichText;
-  artefactsOfPower: IFactionEnhancementGroup[];
-  artefactsOfPowerDescription: IRichText;
-  spellLores: IFactionEnhancementGroup[];
-  spellLoresDescription: IRichText;
+  enhancementSections: IFactionEnhancementSection[];
 }
 
 export interface IFactionBattleTrait extends IRule {}
 
 export interface IFactionSubfaction {
   name: string;
-  flavorText: string;
+  subfactionRulesets: IFactionSubfactionRuleset[];
+}
+
+export interface IFactionSubfactionRuleset {
+  name: string;
   description: IRichText;
-  image: IImage;
-  abilities: IAbility[];
-  commandAbilities: ICommandAbility[];
-  commandTraitDescription: IRichText;
-  commandTrait: ICommandTrait;
-  artefactOfPowerDescription: IRichText;
-  artefactOfPower: IArtefactOfPower;
+  rules: IRule[];
 }
 
 export interface IFactionTerrainRule {
@@ -54,12 +38,18 @@ export interface IFactionSceneryWarscroll {
   flavorText: string;
   description: IRichText;
   image: IImage;
-  sceneryRules: IAbility[];
+  sceneryRules: IRule[];
   keywords: string[];
+}
+
+export interface IFactionEnhancementSection {
+  name: string;
+  description: IRichText;
+  enhancementGroups: IFactionEnhancementGroup[];
 }
 
 export interface IFactionEnhancementGroup {
   name: string;
   description: IRichText;
-  enhancements?: ICommandTrait[] | IArtefactOfPower[] | ISpell[];
+  enhancements?: IRule[];
 }

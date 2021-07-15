@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  IArtefactOfPower,
-  ICommandTrait,
-  IRichText,
-  ISpell,
-} from '../../../models/shared';
+import { IRichText, IRule } from '../../../models/shared';
 import ContentItem from '../../shared/content-item/content-item';
 import RichText from '../../shared/rich-text';
 import Rule from '../../shared/rule/rule';
@@ -12,7 +7,7 @@ import Rule from '../../shared/rule/rule';
 interface FactionEnhancementGroup {
   name: string;
   description: IRichText;
-  enchancements?: ICommandTrait[] | IArtefactOfPower[] | ISpell[];
+  enchancements?: IRule[];
 }
 
 const FactionEnhancementGroup: React.FC<FactionEnhancementGroup> = ({

@@ -14,42 +14,39 @@ type DataProps = {
   title: string;
 };
 
-const data: DataProps[] = [
-  {
-    route: 'FactionDetailsBattleTraits',
-    title: 'Battle Traits',
-  },
-  {
-    route: 'FactionDetailsSubfactions',
-    title: 'Subfactions',
-  },
-  {
-    route: 'FactionDetailsWarscrolls',
-    title: 'Warscrolls',
-  },
-  {
-    route: 'FactionDetailsFactionTerrainRules',
-    title: 'Faction Terrain Rules',
-  },
-  {
-    route: 'FactionDetailsCommandTraits',
-    title: 'Command Traits',
-  },
-  {
-    route: 'FactionDetailsArtefactsOfPower',
-    title: 'Artefacts of Power',
-  },
-  {
-    route: 'FactionDetailsSpellLores',
-    title: 'Spell Lores',
-  },
-];
-
 const FactionDetailsScreen = ({ route, navigation }: Props) => {
   const { faction } = route.params;
 
   const theme = useCustomTheme();
   const styles = themedStyles(theme);
+
+  const data: DataProps[] = [
+    ...([
+      {
+        route: 'FactionDetailsBattleTraits',
+        title: 'Battle Traits',
+      },
+      {
+        route: 'FactionDetailsSubfactions',
+        title: 'Subfactions',
+      },
+      {
+        route: 'FactionDetailsWarscrolls',
+        title: 'Warscrolls',
+      },
+      {
+        route: 'FactionDetailsFactionTerrainRules',
+        title: 'Faction Terrain Rules',
+      },
+    ] as DataProps[]),
+    ...faction.enhancementSections?.map(
+      (enhancementSection) =>
+        ({
+          route: 'FactionDetailsEnhancementSection',
+          title: enhancementSection.name,
+        } as DataProps)
+    ),
+  ];
 
   return (
     <FlatList

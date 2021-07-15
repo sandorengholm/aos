@@ -1,10 +1,8 @@
 import {
-  IAbility,
-  ICommandAbility,
   IImage,
   IRichText,
+  IRule,
   ISectionListData,
-  ISpell,
   WEAPON_TYPE,
 } from './shared';
 
@@ -27,12 +25,12 @@ export interface IWarscroll {
   fly: boolean;
   weapons: IWarscrollWeapon[];
   damageTable: IWarscrollDamageTable;
-  abilities: IAbility[];
+  abilities: IRule[];
   magic: IRichText;
   casts: number;
   unbinds: number;
-  spells: ISpell[];
-  commandAbilities: ICommandAbility[];
+  spells: IRule[];
+  commandAbilities: IRule[];
   keywords: string[];
   pointCost: number;
   battlefieldRole: string[];

@@ -4,12 +4,14 @@ import FactionListScreen from './FactionListScreen';
 import FactionDetailsScreen from './FactionDetailsScreen';
 import FactionDetailsBattleTraitsScreen from './FactionDetailsBattleTraitsScreen';
 import FactionDetailsSubfactionsScreen from './FactionDetailsSubfactionsScreen';
-import { IFaction, IFactionSubfaction } from '../../models/faction';
+import {
+  IFaction,
+  IFactionEnhancementSection,
+  IFactionSubfaction,
+} from '../../models/faction';
 import FactionDetailsWarscrolls from './FactionDetailsWarscrolls';
 import FactionDetailsFactionTerrainRules from './FactionDetailsFactionTerrainRules';
-import FactionDetailsCommandTraits from './FactionDetailsCommandTraits';
-import FactionDetailsArtefactsOfPower from './FactionDetailsArtefactsOfPower';
-import FactionDetailsSpellLores from './FactionDetailsSpellLores';
+import FactionDetailsCommandTraits from './FactionDetailsEnhancementSectionScreen';
 import WarscrollDetailsScreen from '../warscrolls/WarscrollDetailsScreen';
 import { IWarscroll } from '../../models/warscroll';
 import FactionDetailsSubfactionDetailsScreen from './FactionDetailsSubfactionDetailsScreen';
@@ -42,17 +44,8 @@ export type FactionsRootStackParamList = {
     faction: IFaction;
     title: string;
   };
-  FactionDetailsCommandTraits: {
-    faction: IFaction;
-    title: string;
-  };
-  FactionDetailsArtefactsOfPower: {
-    faction: IFaction;
-    title: string;
-  };
-  FactionDetailsSpellLores: {
-    faction: IFaction;
-    title: string;
+  FactionDetailsEnhancementSection: {
+    enhancementSection: IFactionEnhancementSection;
   };
 };
 
@@ -105,19 +98,11 @@ const FactionsScreen = () => {
         options={({ route }) => ({ title: route.params.title })}
       />
       <Stack.Screen
-        name="FactionDetailsCommandTraits"
+        name="FactionDetailsEnhancementSection"
         component={FactionDetailsCommandTraits}
-        options={({ route }) => ({ title: route.params.title })}
-      />
-      <Stack.Screen
-        name="FactionDetailsArtefactsOfPower"
-        component={FactionDetailsArtefactsOfPower}
-        options={({ route }) => ({ title: route.params.title })}
-      />
-      <Stack.Screen
-        name="FactionDetailsSpellLores"
-        component={FactionDetailsSpellLores}
-        options={({ route }) => ({ title: route.params.title })}
+        options={({ route }) => ({
+          title: route.params.enhancementSection.name,
+        })}
       />
     </Stack.Navigator>
   );
