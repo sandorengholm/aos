@@ -12,16 +12,16 @@ type Props = StackScreenProps<
 >;
 
 const FactionDetailsSubfactionsScreen = ({ route, navigation }: Props) => {
-  const { faction } = route.params;
+  const { data } = route.params;
 
   const theme = useCustomTheme();
   const styles = themedStyles(theme);
 
-  if (!faction?.subfactions.length) return null;
+  if (!data.length) return null;
 
   return (
     <FlatList
-      data={faction.subfactions}
+      data={data}
       renderItem={({ item }) => (
         <ListItem
           text={item.name}

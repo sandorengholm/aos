@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import { sizes } from '../../../helpers/sizes';
 import useCustomTheme from '../../../hooks/useCustomTheme';
-import { IFactionSceneryWarscroll } from '../../../models/faction';
+import { ISceneryWarscroll } from '../../../models/faction';
 import { CustomTheme } from '../../../models/theme';
 import ContentItem from '../../shared/content-item';
 import RichText from '../../shared/rich-text';
@@ -11,7 +11,7 @@ import WarscrollHeader from '../../warscroll/warscroll-header';
 import WarscrollKeywords from '../../warscroll/warscroll-keywords';
 
 interface FactionSceneryWarscroll {
-  sceneryWarscroll: IFactionSceneryWarscroll;
+  sceneryWarscroll: ISceneryWarscroll;
 }
 
 const FactionSceneryWarscroll = ({

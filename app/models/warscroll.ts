@@ -15,7 +15,6 @@ export interface IWarscroll {
   name: string;
   subname: string;
   image: IImage;
-  factions: IWarscrollFaction;
   move: string;
   save: string;
   bravery: string;
@@ -23,8 +22,8 @@ export interface IWarscroll {
   flavorText: string;
   description: IRichText;
   fly: boolean;
-  weapons: IWarscrollWeapon[];
-  damageTable: IWarscrollDamageTable;
+  weapons: IWeapon[];
+  damageTable: IDamageTable;
   abilities: IRule[];
   magic: IRichText;
   casts: number;
@@ -38,7 +37,7 @@ export interface IWarscroll {
   notes: IRichText;
 }
 
-export interface IWarscrollWeapon {
+export interface IWeapon {
   name: string;
   type: WEAPON_TYPE;
   range: string;
@@ -49,17 +48,12 @@ export interface IWarscrollWeapon {
   damage: string;
 }
 
-export interface IWarscrollDamageTable {
+export interface IDamageTable {
   woundsSuffered: string[];
-  damageTableEntries: IWarscrollDamageTableEntry[];
+  damageTableEntries: IDamageTableEntry[];
 }
 
-export interface IWarscrollDamageTableEntry {
+export interface IDamageTableEntry {
   name: string;
   values: string[];
-}
-
-export interface IWarscrollFaction {
-  id: string;
-  name: string;
 }

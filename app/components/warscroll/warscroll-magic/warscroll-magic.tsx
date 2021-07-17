@@ -1,15 +1,14 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { sizes } from '../../../helpers/sizes';
-import { IRichText } from '../../../models/shared';
-import { ISpell } from '../../../models/shared';
+import { IRichText, IRule } from '../../../models/shared';
 import ContentItem from '../../shared/content-item/content-item';
 import RichText from '../../shared/rich-text/rich-text';
 import Rule from '../../shared/rule/rule';
 
 interface WarscrollMagic {
   magic?: IRichText;
-  spells?: ISpell[];
+  spells?: IRule[];
 }
 
 const WarscrollMagic: React.FC<WarscrollMagic> = ({ magic, spells }) => {

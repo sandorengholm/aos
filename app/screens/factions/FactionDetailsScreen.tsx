@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, FlatList, View } from 'react-native';
-
 import { StackScreenProps } from '@react-navigation/stack';
 import { FactionsRootStackParamList } from './FactionsScreen';
 import ListItem from '../../components/shared/list-item';
@@ -12,6 +11,7 @@ type Props = StackScreenProps<FactionsRootStackParamList, 'FactionDetails'>;
 type DataProps = {
   route: keyof FactionsRootStackParamList;
   title: string;
+  data: any;
 };
 
 const FactionDetailsScreen = ({ route, navigation }: Props) => {
@@ -25,25 +25,30 @@ const FactionDetailsScreen = ({ route, navigation }: Props) => {
       {
         route: 'FactionDetailsBattleTraits',
         title: 'Battle Traits',
+        data: faction.battleTraits,
       },
       {
         route: 'FactionDetailsSubfactions',
         title: 'Subfactions',
+        data: faction.subfactions,
       },
       {
         route: 'FactionDetailsWarscrolls',
         title: 'Warscrolls',
+        data: faction.warscrolls,
       },
       {
         route: 'FactionDetailsFactionTerrainRules',
         title: 'Faction Terrain Rules',
+        data: faction.factionTerrainRules,
       },
     ] as DataProps[]),
-    ...faction.enhancementSections?.map(
-      (enhancementSection) =>
+    ...faction.ruleSections?.map(
+      (ruleSection) =>
         ({
-          route: 'FactionDetailsEnhancementSection',
-          title: enhancementSection.name,
+          route: 'FactionDetailsRuleSection',
+          title: ruleSection.name,
+          data: ruleSection,
         } as DataProps)
     ),
   ];
@@ -55,7 +60,10 @@ const FactionDetailsScreen = ({ route, navigation }: Props) => {
         <ListItem
           text={item.title}
           onPress={() =>
-            navigation.navigate(item.route, { faction, title: item.title })
+            navigation.navigate(item.route, {
+              data: item.data,
+              title: item.title,
+            })
           }
         />
       )}

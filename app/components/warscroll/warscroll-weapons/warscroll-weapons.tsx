@@ -1,5 +1,5 @@
 import React from 'react';
-import { IWarscrollWeapon } from '../../../models/warscroll';
+import { IWeapon } from '../../../models/warscroll';
 import ContentItem from '../../shared/content-item/content-item';
 import {
   Table,
@@ -9,7 +9,7 @@ import {
 } from '../../shared/table/table';
 
 interface WarscrollWeapons {
-  weapons: IWarscrollWeapon[];
+  weapons: IWeapon[];
 }
 
 const WarscrollWeapons: React.FC<WarscrollWeapons> = ({ weapons }) => {

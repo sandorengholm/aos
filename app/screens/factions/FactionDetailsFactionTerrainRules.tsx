@@ -12,13 +12,13 @@ type Props = StackScreenProps<
 >;
 
 const FactionDetailsFactionTerrainRulesScreen = ({ route }: Props) => {
-  const { faction } = route.params;
+  const { data } = route.params;
 
-  if (!faction?.factionTerrainRules.length) return null;
+  if (!data.length) return null;
 
   return (
     <CustomScrollView>
-      {faction.factionTerrainRules.map((factionTerrainRule, index) => (
+      {data.map((factionTerrainRule, index) => (
         <React.Fragment key={index}>
           <Title text={factionTerrainRule.name} />
 

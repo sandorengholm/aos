@@ -1,10 +1,10 @@
 import React from 'react';
-import { ICommandAbility } from '../../../models/shared';
+import { IRule } from '../../../models/shared';
 import ContentItem from '../../shared/content-item/content-item';
 import Rule from '../../shared/rule/rule';
 
 interface WarscrollCommandAbilities {
-  commandAbilities: ICommandAbility[];
+  commandAbilities: IRule[];
 }
 
 const WarscrollCommandAbilities: React.FC<WarscrollCommandAbilities> = ({

@@ -17,6 +17,8 @@ const RichText: React.FC<RichText> = ({ text, hasMargin }) => {
   const theme = useCustomTheme();
   const styles = themedStyles(theme);
 
+  if (!text || !text?.html.length) return null;
+
   return (
     <View style={hasMargin ? styles.descriptionContainer : undefined}>
       <HTML

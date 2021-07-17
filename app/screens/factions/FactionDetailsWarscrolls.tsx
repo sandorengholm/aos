@@ -12,16 +12,16 @@ type Props = StackScreenProps<
 >;
 
 const FactionDetailsWarscrollsScreen = ({ route, navigation }: Props) => {
-  const { faction } = route.params;
+  const { data } = route.params;
 
-  if (!faction?.warscrolls.length) return null;
+  if (!data.length) return null;
 
   const theme = useCustomTheme();
   const styles = themedStyles(theme);
 
   return (
     <FlatList
-      data={faction.warscrolls}
+      data={data}
       renderItem={({ item }) => (
         <WarscrollListItem
           warscroll={item}

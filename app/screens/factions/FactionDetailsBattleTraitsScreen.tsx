@@ -10,13 +10,13 @@ type Props = StackScreenProps<
 >;
 
 const FactionDetailsBattleTraitsScreen = ({ route }: Props) => {
-  const { faction } = route.params;
+  const { data } = route.params;
 
-  if (!faction?.battleTraits.length) return null;
+  if (!data.length) return null;
 
   return (
     <CustomScrollView>
-      {faction.battleTraits.map((battleTrait, index) => (
+      {data.map((battleTrait, index) => (
         <Rule key={index} rule={battleTrait} />
       ))}
     </CustomScrollView>

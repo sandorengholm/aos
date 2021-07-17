@@ -14,17 +14,13 @@ export const getListOfWarscrolls = async (): Promise<
             factions(orderBy: name_ASC) {
               title: name
               data: warscrolls {
-                ... on Warscroll {
+                ... on Warscroll{
                   id
                   name
                   subname
                   image {
                       url
                   }
-                  factions {
-                      id
-                      name
-                  } 
                   move
                   save
                   bravery
@@ -56,13 +52,12 @@ export const getListOfWarscrolls = async (): Promise<
                       }
                   }
                   abilities {
-                      ... on Ability {
+                      ... on Rule {
                           name
                           flavorText
                           description {
                               html
                           }
-                          designersNote
                       }
                   }
                   magic {
@@ -71,23 +66,21 @@ export const getListOfWarscrolls = async (): Promise<
                   casts
                   unbinds
                   spells {
-                      ... on Spell {
+                      ... on Rule {
                           name
                           flavorText
                           description {
                               html
                           }
-                          designersNote
                       }
                   }
                   commandAbilities {
-                      ... on CommandAbility {
+                      ... on Rule {
                           name
                           flavorText
                           description {
                               html
                           }
-                          designersNote
                       }
                   }
                   keywords
@@ -129,23 +122,13 @@ export const getListOfFactions = async () => {
                 ... on Faction {
                   id
                   name
-                  grandAlliance {
-                      ... on GrandAlliance {
-                          name
-                      }
-                  }
                   warscrolls {
                       ... on Warscroll {
-                        id
                         name
                         subname
                         image {
                             url
                         }
-                        factions {
-                            id
-                            name
-                        } 
                         move
                         save
                         bravery
@@ -177,13 +160,12 @@ export const getListOfFactions = async () => {
                             }
                         }
                         abilities {
-                            ... on Ability {
+                            ... on Rule {
                                 name
                                 flavorText
                                 description {
                                     html
                                 }
-                                designersNote
                             }
                         }
                         magic {
@@ -192,23 +174,21 @@ export const getListOfFactions = async () => {
                         casts
                         unbinds
                         spells {
-                            ... on Spell {
+                            ... on Rule {
                                 name
                                 flavorText
                                 description {
                                     html
                                 }
-                                designersNote
                             }
                         }
                         commandAbilities {
-                            ... on CommandAbility {
+                            ... on Rule {
                                 name
                                 flavorText
                                 description {
                                     html
                                 }
-                                designersNote
                             }
                         }
                         keywords
@@ -225,71 +205,36 @@ export const getListOfFactions = async () => {
                           name
                       }
                   }
-                  canBeAlliedIn {
-                      ... on Faction {
-                          name
-                      }
-                  }
                   battleTraits {
-                      ... on BattleTrait {
+                      ... on Rule {
                           name
                           flavorText
                           description {
                               html
                           }
-                          designersNote
                       }
                   }
                   subfactions {
                       ... on Subfaction {
                         id
                         name
-                        abilities {
-                            ... on Ability {
+                        ruleGroups {
+                            ... on RuleGroup {
                                 name,
-                                flavorText
                                 description {
                                     html
                                 }
-                                designersNote
+                                rules {
+                                    ... on Rule {
+                                        name
+                                        flavorText
+                                        description {
+                                            html
+                                        }
+                                    }
+                                }
                             }
-                        }
-                        commandAbilities {
-                            ... on CommandAbility {
-                            name,
-                            flavorText
-                            description {
-                                html
-                            }
-                            designersNote
-                            }
-                        }
-                        commandTraitDescription {
-                            html
-                        }
-                        commandTrait {
-                            ... on CommandTrait {
-                            name,
-                            flavorText
-                            description {
-                                html
-                            }
-                            designersNote
-                            }
-                        }
-                        artefactOfPowerDescription {
-                            html
-                        }
-                        artefactOfPower {
-                            ... on ArtefactOfPower {
-                            name,
-                            flavorText
-                            description {
-                                html
-                            }
-                            designersNote
-                            }
-                        }
+                        } 
                       }
                   }
                   factionTerrainRules {
@@ -308,13 +253,12 @@ export const getListOfFactions = async () => {
                                       url
                                   }
                                   sceneryRules {
-                                      ... on Ability {
+                                      ... on Rule {
                                         name,
                                         flavorText
                                         description {
                                             html
                                         }
-                                        designersNote
                                     }
                                   }
                                   keywords
@@ -322,71 +266,30 @@ export const getListOfFactions = async () => {
                           }
                       }
                   }
-                  commandTraitDescription {
-                      html
-                  }
-                  commandTraits {
-                      ... on EnhancementGroup {
-                          id
-                          name
-                          description {
-                              html
-                          }
-                          enhancements {
-                              ... on CommandTrait {
-                                  name
-                                  flavorText
-                                  description {
-                                      html
+                  ruleSections {
+                    ... on RuleSection {
+                        name
+                        description {
+                            html
+                        }
+                        ruleGroups {
+                            ... on RuleGroup {
+                              name
+                              description {
+                                  html
+                              }
+                              rules {
+                                  ... on Rule {
+                                      name
+                                      flavorText
+                                      description {
+                                          html
+                                      }
                                   }
-                                  designersNote
                               }
                           }
-                      }
-                  }
-                  artefactsOfPowerDescription {
-                      html
-                  }
-                  artefactsOfPower {
-                      ... on EnhancementGroup {
-                          id
-                          name
-                          description {
-                              html
-                          }
-                          enhancements {
-                              ... on ArtefactOfPower {
-                                  name
-                                  flavorText
-                                  description {
-                                      html
-                                  }
-                                  designersNote
-                              }
-                          }
-                      }
-                  }
-                  spellLoresDescription {
-                      html
-                  }
-                  spellLores {
-                      ... on EnhancementGroup {
-                          id
-                          name
-                          description {
-                              html
-                          }
-                          enhancements {
-                              ... on Spell {
-                                  name
-                                  flavorText
-                                  description {
-                                      html
-                                  }
-                                  designersNote
-                              }
-                          }
-                      }
+                        }
+                    }
                   }
                 }
               }

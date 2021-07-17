@@ -12,7 +12,6 @@ import { text } from '../../../helpers/text';
 import useCustomTheme from '../../../hooks/useCustomTheme';
 import { CustomTheme } from '../../../models/theme';
 import { IWarscroll } from '../../../models/warscroll';
-import RichText from '../../shared/rich-text';
 
 interface WarscrollListItem {
   warscroll: IWarscroll;

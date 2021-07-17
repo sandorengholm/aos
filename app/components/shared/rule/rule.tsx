@@ -2,12 +2,12 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { sizes } from '../../../helpers/sizes';
 import useCustomTheme from '../../../hooks/useCustomTheme';
-import { IAbility, ICommandAbility, ISpell } from '../../../models/shared';
+import { IRule } from '../../../models/shared';
 import { CustomTheme } from '../../../models/theme';
 import RichText from '../rich-text/rich-text';
 
 interface Rule {
-  rule: IAbility | ICommandAbility | ISpell;
+  rule: IRule;
 }
 
 const Rule: React.FC<Rule> = ({ rule }) => {

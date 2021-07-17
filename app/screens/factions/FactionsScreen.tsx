@@ -6,15 +6,16 @@ import FactionDetailsBattleTraitsScreen from './FactionDetailsBattleTraitsScreen
 import FactionDetailsSubfactionsScreen from './FactionDetailsSubfactionsScreen';
 import {
   IFaction,
-  IFactionEnhancementSection,
-  IFactionSubfaction,
+  ISubfaction,
+  IFactionTerrainRule,
 } from '../../models/faction';
 import FactionDetailsWarscrolls from './FactionDetailsWarscrolls';
 import FactionDetailsFactionTerrainRules from './FactionDetailsFactionTerrainRules';
-import FactionDetailsCommandTraits from './FactionDetailsEnhancementSectionScreen';
 import WarscrollDetailsScreen from '../warscrolls/WarscrollDetailsScreen';
 import { IWarscroll } from '../../models/warscroll';
 import FactionDetailsSubfactionDetailsScreen from './FactionDetailsSubfactionDetailsScreen';
+import { IRule, IRuleSection } from '../../models/shared';
+import FactionDetailsRuleSectionScreen from './FactionDetailsRuleSectionScreen';
 
 export type FactionsRootStackParamList = {
   FactionList: undefined;
@@ -22,30 +23,31 @@ export type FactionsRootStackParamList = {
     faction: IFaction;
   };
   FactionDetailsBattleTraits: {
-    faction: IFaction;
+    data: IRule[];
     title: string;
   };
   FactionDetailsSubfactions: {
-    faction: IFaction;
+    data: ISubfaction[];
     title: string;
   };
   FactionDetailsSubfactionDetails: {
-    subfaction: IFactionSubfaction;
+    subfaction: ISubfaction;
     title: string;
   };
   FactionDetailsWarscrolls: {
-    faction: IFaction;
+    data: IWarscroll[];
     title: string;
   };
   FactionDetailsWarscrollDetails: {
     warscroll: IWarscroll;
   };
   FactionDetailsFactionTerrainRules: {
-    faction: IFaction;
+    data: IFactionTerrainRule[];
     title: string;
   };
-  FactionDetailsEnhancementSection: {
-    enhancementSection: IFactionEnhancementSection;
+  FactionDetailsRuleSection: {
+    data: IRuleSection;
+    title: string;
   };
 };
 
@@ -98,11 +100,9 @@ const FactionsScreen = () => {
         options={({ route }) => ({ title: route.params.title })}
       />
       <Stack.Screen
-        name="FactionDetailsEnhancementSection"
-        component={FactionDetailsCommandTraits}
-        options={({ route }) => ({
-          title: route.params.enhancementSection.name,
-        })}
+        name="FactionDetailsRuleSection"
+        component={FactionDetailsRuleSectionScreen}
+        options={({ route }) => ({ title: route.params.title })}
       />
     </Stack.Navigator>
   );

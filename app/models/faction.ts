@@ -1,4 +1,4 @@
-import { IImage, IRichText, IRule } from './shared';
+import { IImage, IRichText, IRule, IRuleGroup, IRuleSection } from './shared';
 import { IWarscroll } from './warscroll';
 
 export interface IFaction {
@@ -6,50 +6,29 @@ export interface IFaction {
   name: string;
   warscrolls: IWarscroll[];
   allies: IFaction[];
-  canBeAlliedIn: IFaction[];
-  battleTraits: IFactionBattleTrait[];
-  subfactions: IFactionSubfaction[];
+  battleTraits: IRule[];
+  subfactions: ISubfaction[];
   factionTerrainRules: IFactionTerrainRule[];
-  enhancementSections: IFactionEnhancementSection[];
+  ruleSections: IRuleSection[];
 }
 
-export interface IFactionBattleTrait extends IRule {}
-
-export interface IFactionSubfaction {
+export interface ISubfaction {
   name: string;
-  subfactionRulesets: IFactionSubfactionRuleset[];
-}
-
-export interface IFactionSubfactionRuleset {
-  name: string;
-  description: IRichText;
-  rules: IRule[];
+  ruleGroups: IRuleGroup[];
 }
 
 export interface IFactionTerrainRule {
   name: string;
   flavorText: string;
   description: IRichText;
-  sceneryWarscroll: IFactionSceneryWarscroll;
+  sceneryWarscroll: ISceneryWarscroll;
 }
 
-export interface IFactionSceneryWarscroll {
+export interface ISceneryWarscroll {
   name: string;
   flavorText: string;
   description: IRichText;
   image: IImage;
   sceneryRules: IRule[];
   keywords: string[];
-}
-
-export interface IFactionEnhancementSection {
-  name: string;
-  description: IRichText;
-  enhancementGroups: IFactionEnhancementGroup[];
-}
-
-export interface IFactionEnhancementGroup {
-  name: string;
-  description: IRichText;
-  enhancements?: IRule[];
 }

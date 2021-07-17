@@ -1,21 +1,19 @@
 import React from 'react';
-import { IFactionSubfaction } from '../../../models/faction';
-import ContentItem from '../../shared/content-item';
-import RichText from '../../shared/rich-text';
-import Rule from '../../shared/rule';
+import { ISubfaction } from '../../../models/faction';
+import RuleGroup from '../../shared/rule-group';
 
-const FactionSubfactionItem: React.FC<IFactionSubfaction> = ({
-  subfactionRulesets,
-}) => {
+const FactionSubfactionItem: React.FC<ISubfaction> = ({ ruleGroups }) => {
+  if (!ruleGroups.length) return null;
+
   return (
     <>
-      {subfactionRulesets.map((subfactionRuleset, index) => (
-        <ContentItem key={index} title={subfactionRuleset.name}>
-          <RichText hasMargin={true} text={subfactionRuleset.description} />
-          {subfactionRuleset.rules.map((rule, index) => (
-            <Rule key={index} rule={rule} />
-          ))}
-        </ContentItem>
+      {ruleGroups.map((ruleGroup, index) => (
+        <RuleGroup
+          key={index}
+          name={ruleGroup.name}
+          description={ruleGroup.description}
+          rules={ruleGroup.rules}
+        />
       ))}
     </>
   );

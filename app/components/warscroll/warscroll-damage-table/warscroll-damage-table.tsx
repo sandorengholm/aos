@@ -1,10 +1,10 @@
 import React from 'react';
-import { IWarscrollDamageTable } from '../../../models/warscroll';
+import { IDamageTable } from '../../../models/warscroll';
 import ContentItem from '../../shared/content-item/content-item';
 import { Table, TableHeaderRow, TableRow } from '../../shared/table/table';
 
 interface WarscrollDamageTable {
-  damageTable: IWarscrollDamageTable;
+  damageTable: IDamageTable;
 }
 
 const WarscrollDamageTable: React.FC<WarscrollDamageTable> = ({
