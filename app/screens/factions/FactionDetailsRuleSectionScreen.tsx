@@ -6,7 +6,7 @@ import RichText from '../../components/shared/rich-text';
 import Rule from '../../components/shared/rule';
 import RuleGroup from '../../components/shared/rule-group';
 import { sizes } from '../../helpers/sizes';
-import { FactionsRootStackParamList } from './FactionsScreen';
+import { FactionsRootStackParamList } from '../FactionsScreen';
 
 type Props = StackScreenProps<
   FactionsRootStackParamList,

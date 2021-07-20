@@ -4,7 +4,7 @@ import FactionSceneryWarscroll from '../../components/faction/faction-scenery-wa
 import CustomScrollView from '../../components/shared/custom-scroll-view';
 import RichText from '../../components/shared/rich-text';
 import Title from '../../components/shared/title';
-import { FactionsRootStackParamList } from './FactionsScreen';
+import { FactionsRootStackParamList } from '../FactionsScreen';
 
 type Props = StackScreenProps<
   FactionsRootStackParamList,

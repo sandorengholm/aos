@@ -4,7 +4,7 @@ import { View, StyleSheet, FlatList } from 'react-native';
 import WarscrollListItem from '../../components/warscroll/warscroll-list-item';
 import useCustomTheme from '../../hooks/useCustomTheme';
 import { CustomTheme } from '../../models/theme';
-import { FactionsRootStackParamList } from './FactionsScreen';
+import { FactionsRootStackParamList } from '../FactionsScreen';
 
 type Props = StackScreenProps<
   FactionsRootStackParamList,

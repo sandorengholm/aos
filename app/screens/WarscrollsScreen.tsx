@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import WarscrollListScreen from './WarscrollListScreen';
-import WarscrollDetailsScreen from './WarscrollDetailsScreen';
+import WarscrollListScreen from './warscrolls/WarscrollListScreen';
+import WarscrollDetailsScreen from './warscrolls/WarscrollDetailsScreen';
 
 const Stack = createStackNavigator();
 

@@ -1,8 +1,7 @@
-import { IWarscrollList } from '../models/warscroll';
+import { ISectionListData } from '../models/shared';
+import { IWarscroll } from '../models/warscroll';
 
-export const getListOfWarscrolls = async (): Promise<
-  IWarscrollList | undefined
-> => {
+export const getListOfWarscrolls = async () => {
   try {
     let response = await fetch(
       'https://api-eu-central-1.graphcms.com/v2/ckqgykxxlgpi101wa1z9e5irj/master',
@@ -101,7 +100,7 @@ export const getListOfWarscrolls = async (): Promise<
 
     let json = await response.json();
 
-    return json.data as IWarscrollList;
+    return json.data.factions as ISectionListData<IWarscroll>[];
   } catch (error) {
     console.error(error);
   }
@@ -305,6 +304,36 @@ export const getListOfFactions = async () => {
             }
           }
         `,
+        }),
+      }
+    );
+
+    let json = await response.json();
+
+    return json.data.grandAlliances;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const getListOfBattleplans = async () => {
+  try {
+    let response = await fetch(
+      'https://api-eu-central-1.graphcms.com/v2/ckqgykxxlgpi101wa1z9e5irj/master',
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          query: `#graphql
+            {
+              battleplans {
+                  ... on Battleplan {
+                    id
+                    name
+                  }
+                }
+              }
+            }
+          `,
         }),
       }
     );

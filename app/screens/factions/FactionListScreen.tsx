@@ -1,13 +1,21 @@
+import { StackScreenProps } from '@react-navigation/stack';
 import React from 'react';
 import { StyleSheet, View, SectionList, Text } from 'react-native';
 import ListItem from '../../components/shared/list-item';
 import { sizes } from '../../helpers/sizes';
 import useCustomTheme from '../../hooks/useCustomTheme';
+import { IFaction } from '../../models/faction';
+import { ISectionListData } from '../../models/shared';
 import { CustomTheme } from '../../models/theme';
 import { getListOfFactions } from '../../services/warscroll-service';
+import { FactionsRootStackParamList } from '../FactionsScreen';
 
-const FactionListScreen = ({ navigation }: any) => {
-  const [factionList, setFactionList] = React.useState<any[]>([]);
+type Props = StackScreenProps<FactionsRootStackParamList, 'FactionList'>;
+
+const FactionListScreen = ({ navigation }: Props) => {
+  const [factionList, setFactionList] = React.useState<
+    ISectionListData<IFaction>[]
+  >([]);
   const [refreshing, setRefreshing] = React.useState(false);
 
   const theme = useCustomTheme();

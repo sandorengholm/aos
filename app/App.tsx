@@ -6,8 +6,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ListsScreen from './screens/ListsScreen';
 import BattleplansTab from './screens/BattleplansScreen';
 import RulesTab from './screens/RulesScreen';
-import FactionsScreen from './screens/factions/FactionsScreen';
-import WarscrollsScreen from './screens/warscrolls/WarscrollsScreen';
+import FactionsScreen from './screens/FactionsScreen';
+import WarscrollsScreen from './screens/WarscrollsScreen';
 import { useColorScheme } from 'react-native';
 import { CustomDarkTheme } from './themes/dark';
 import { CustomDefaultTheme } from './themes/light';
@@ -78,7 +78,7 @@ const App = () => {
           <Tab.Screen name="Factions" component={FactionsScreen} />
           <Tab.Screen name="Lists" component={ListsScreen} />
           <Tab.Screen name="Battleplans" component={BattleplansTab} />
-          <Tab.Screen name="Rules" component={RulesTab} />
+          {/* <Tab.Screen name="Rules" component={RulesTab} /> */}
           <Tab.Screen name="Settings" component={RulesTab} />
         </Tab.Navigator>
       </NavigationContainer>

@@ -2,7 +2,7 @@ import { StackScreenProps } from '@react-navigation/stack';
 import React from 'react';
 import CustomScrollView from '../../components/shared/custom-scroll-view';
 import Rule from '../../components/shared/rule/rule';
-import { FactionsRootStackParamList } from './FactionsScreen';
+import { FactionsRootStackParamList } from '../FactionsScreen';
 
 type Props = StackScreenProps<
   FactionsRootStackParamList,

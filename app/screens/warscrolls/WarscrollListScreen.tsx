@@ -3,12 +3,14 @@ import { StyleSheet, Text, SectionList, View } from 'react-native';
 import WarscrollListItem from '../../components/warscroll/warscroll-list-item';
 import { sizes } from '../../helpers/sizes';
 import useCustomTheme from '../../hooks/useCustomTheme';
+import { ISectionListData } from '../../models/shared';
 import { CustomTheme } from '../../models/theme';
-import { IWarscrollList } from '../../models/warscroll';
+import { IWarscroll } from '../../models/warscroll';
 import { getListOfWarscrolls } from '../../services/warscroll-service';
 
 const WarscrollListScreen = ({ navigation }: any) => {
-  const [warscrollList, setWarscrollList] = React.useState<IWarscrollList>();
+  const [warscrollList, setWarscrollList] =
+    React.useState<ISectionListData<IWarscroll>[]>();
   const [refreshing, setRefreshing] = React.useState(false);
 
   const theme = useCustomTheme();
@@ -29,7 +31,8 @@ const WarscrollListScreen = ({ navigation }: any) => {
 
   return (
     <SectionList
-      sections={warscrollList.factions}
+      stickySectionHeadersEnabled={true}
+      sections={warscrollList.filter((item) => item.data.length)}
       renderItem={({ item }) => (
         <WarscrollListItem
           warscroll={item}

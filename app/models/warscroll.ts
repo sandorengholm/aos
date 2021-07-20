@@ -1,14 +1,4 @@
-import {
-  IImage,
-  IRichText,
-  IRule,
-  ISectionListData,
-  WEAPON_TYPE,
-} from './shared';
-
-export interface IWarscrollList {
-  factions: ISectionListData<IWarscroll>[];
-}
+import { IImage, IRichText, IRule, WEAPON_TYPE } from './shared';
 
 export interface IWarscroll {
   id: string;

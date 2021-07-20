@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, FlatList, View } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
-import { FactionsRootStackParamList } from './FactionsScreen';
+import { FactionsRootStackParamList } from '../FactionsScreen';
 import ListItem from '../../components/shared/list-item';
 import useCustomTheme from '../../hooks/useCustomTheme';
 import { CustomTheme } from '../../models/theme';
@@ -21,13 +21,15 @@ const FactionDetailsScreen = ({ route, navigation }: Props) => {
   const styles = themedStyles(theme);
 
   const data: DataProps[] = [
-    ...([
-      {
-        route: 'FactionDetailsBattleTraits',
-        title: 'Battle Traits',
-        data: faction.battleTraits,
-      },
-    ] as DataProps[]),
+    ...(faction.battleTraits.length
+      ? ([
+          {
+            route: 'FactionDetailsBattleTraits',
+            title: 'Battle Traits',
+            data: faction.battleTraits,
+          },
+        ] as DataProps[])
+      : []),
     ...(faction.subfactions.length
       ? ([
           {
@@ -37,13 +39,15 @@ const FactionDetailsScreen = ({ route, navigation }: Props) => {
           },
         ] as DataProps[])
       : []),
-    ...([
-      {
-        route: 'FactionDetailsWarscrolls',
-        title: 'Warscrolls',
-        data: faction.warscrolls,
-      },
-    ] as DataProps[]),
+    ...(faction.warscrolls.length
+      ? ([
+          {
+            route: 'FactionDetailsWarscrolls',
+            title: 'Warscrolls',
+            data: faction.warscrolls,
+          },
+        ] as DataProps[])
+      : []),
     ...(faction.factionTerrainRules.length
       ? ([
           {

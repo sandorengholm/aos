@@ -1,21 +1,17 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import FactionListScreen from './FactionListScreen';
-import FactionDetailsScreen from './FactionDetailsScreen';
-import FactionDetailsBattleTraitsScreen from './FactionDetailsBattleTraitsScreen';
-import FactionDetailsSubfactionsScreen from './FactionDetailsSubfactionsScreen';
-import {
-  IFaction,
-  ISubfaction,
-  IFactionTerrainRule,
-} from '../../models/faction';
-import FactionDetailsWarscrolls from './FactionDetailsWarscrolls';
-import FactionDetailsFactionTerrainRules from './FactionDetailsFactionTerrainRules';
-import WarscrollDetailsScreen from '../warscrolls/WarscrollDetailsScreen';
-import { IWarscroll } from '../../models/warscroll';
-import FactionDetailsSubfactionDetailsScreen from './FactionDetailsSubfactionDetailsScreen';
-import { IRule, IRuleSection } from '../../models/shared';
-import FactionDetailsRuleSectionScreen from './FactionDetailsRuleSectionScreen';
+import FactionListScreen from './factions/FactionListScreen';
+import FactionDetailsScreen from './factions/FactionDetailsScreen';
+import FactionDetailsBattleTraitsScreen from './factions/FactionDetailsBattleTraitsScreen';
+import FactionDetailsSubfactionsScreen from './factions/FactionDetailsSubfactionsScreen';
+import { IFaction, ISubfaction, IFactionTerrainRule } from '../models/faction';
+import FactionDetailsWarscrolls from './factions/FactionDetailsWarscrolls';
+import FactionDetailsFactionTerrainRules from './factions/FactionDetailsFactionTerrainRules';
+import WarscrollDetailsScreen from './warscrolls/WarscrollDetailsScreen';
+import { IWarscroll } from '../models/warscroll';
+import FactionDetailsSubfactionDetailsScreen from './factions/FactionDetailsSubfactionDetailsScreen';
+import { IRule, IRuleSection } from '../models/shared';
+import FactionDetailsRuleSectionScreen from './factions/FactionDetailsRuleSectionScreen';
 
 export type FactionsRootStackParamList = {
   FactionList: undefined;

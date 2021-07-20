@@ -4,7 +4,7 @@ import { FlatList, StyleSheet, View } from 'react-native';
 import ListItem from '../../components/shared/list-item';
 import useCustomTheme from '../../hooks/useCustomTheme';
 import { CustomTheme } from '../../models/theme';
-import { FactionsRootStackParamList } from './FactionsScreen';
+import { FactionsRootStackParamList } from '../FactionsScreen';
 
 type Props = StackScreenProps<
   FactionsRootStackParamList,
