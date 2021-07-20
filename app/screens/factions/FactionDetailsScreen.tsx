@@ -27,22 +27,32 @@ const FactionDetailsScreen = ({ route, navigation }: Props) => {
         title: 'Battle Traits',
         data: faction.battleTraits,
       },
-      {
-        route: 'FactionDetailsSubfactions',
-        title: 'Subfactions',
-        data: faction.subfactions,
-      },
+    ] as DataProps[]),
+    ...(faction.subfactions.length
+      ? ([
+          {
+            route: 'FactionDetailsSubfactions',
+            title: 'Subfactions',
+            data: faction.subfactions,
+          },
+        ] as DataProps[])
+      : []),
+    ...([
       {
         route: 'FactionDetailsWarscrolls',
         title: 'Warscrolls',
         data: faction.warscrolls,
       },
-      {
-        route: 'FactionDetailsFactionTerrainRules',
-        title: 'Faction Terrain Rules',
-        data: faction.factionTerrainRules,
-      },
     ] as DataProps[]),
+    ...(faction.factionTerrainRules.length
+      ? ([
+          {
+            route: 'FactionDetailsFactionTerrainRules',
+            title: 'Faction Terrain Rules',
+            data: faction.factionTerrainRules,
+          },
+        ] as DataProps[])
+      : []),
     ...faction.ruleSections?.map(
       (ruleSection) =>
         ({

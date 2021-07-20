@@ -4,7 +4,7 @@ export const sizes = {
   spacing: (value = 1) => {
     return value * sizeIncrements;
   },
-  screenSpacing: sizeIncrements * 3,
+  screenSpacing: sizeIncrements * 2,
   font: {
     xsmall: 12,
     small: 14,

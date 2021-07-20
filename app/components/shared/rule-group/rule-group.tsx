@@ -11,12 +11,12 @@ interface RuleGroup {
 }
 
 const RuleGroup: React.FC<RuleGroup> = ({ name, description, rules }) => {
-  if (!rules?.length) return null;
+  if (!rules?.length && !name && !description) return null;
 
   return (
     <ContentItem title={name}>
-      {!!description?.html && <RichText hasMargin={true} text={description} />}
-      {rules.map((rule, index) => (
+      <RichText hasMargin={true} text={description} />
+      {rules?.map((rule, index) => (
         <Rule key={index} rule={rule} />
       ))}
     </ContentItem>

@@ -35,5 +35,6 @@ export interface IRuleGroup {
 export interface IRuleSection {
   name: string;
   description: IRichText;
+  generalRules: IRule[];
   ruleGroups: IRuleGroup[];
 }

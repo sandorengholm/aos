@@ -272,6 +272,15 @@ export const getListOfFactions = async () => {
                         description {
                             html
                         }
+                        generalRules {
+                            ... on Rule {
+                                name
+                                flavorText
+                                description {
+                                    html
+                                }
+                            }
+                        }
                         ruleGroups {
                             ... on RuleGroup {
                               name
