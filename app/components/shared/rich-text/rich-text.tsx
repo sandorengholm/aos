@@ -42,6 +42,7 @@ const themedStyles = (theme: CustomTheme) =>
   StyleSheet.create({
     base: {
       color: theme.colors.text,
+      fontSize: sizes.font.xsmall,
     },
     descriptionContainer: {
       marginBottom: sizes.spacing(2),

@@ -1,16 +1,17 @@
 import { StackScreenProps } from '@react-navigation/stack';
 import React from 'react';
 import { View, StyleSheet, FlatList, Text } from 'react-native';
+import ListItem from '../../components/shared/list-item';
 import useCustomTheme from '../../hooks/useCustomTheme';
 import { IBattleplan } from '../../models/battleplan';
 import { CustomTheme } from '../../models/theme';
-import { getListOfBattleplans } from '../../services/warscroll-service';
+import { getListOfBattleplans } from '../../services/battleplan-service';
 import { BattleplansRootStackParamList } from '../BattleplansScreen';
 
 type Props = StackScreenProps<BattleplansRootStackParamList, 'BattleplanList'>;
 
-const BattleplanListScreen = ({ route, navigation }: Props) => {
-  const [battleplanList, setBattleplanList] = React.useState<IBattleplan[]>([]);
+const BattleplanListScreen = ({ navigation }: Props) => {
+  const [battleplanList, setBattleplanList] = React.useState<IBattleplan[]>();
   const [refreshing, setRefreshing] = React.useState(false);
 
   const theme = useCustomTheme();
@@ -30,8 +31,19 @@ const BattleplanListScreen = ({ route, navigation }: Props) => {
   return (
     <FlatList
       data={battleplanList}
-      renderItem={({ item }) => <Text>{item.name}</Text>}
+      renderItem={({ item }) => (
+        <ListItem
+          text={item.name}
+          image={item.image}
+          onPress={() =>
+            navigation.navigate('BattleplanDetails', {
+              battleplan: item,
+            })
+          }
+        />
+      )}
       refreshing={refreshing}
+      onRefresh={fetchData}
       style={styles.container}
       keyExtractor={(_, index) => index.toString()}
       ItemSeparatorComponent={() => <View style={styles.separator} />}

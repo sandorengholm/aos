@@ -315,33 +315,3 @@ export const getListOfFactions = async () => {
     console.error(error);
   }
 };
-
-export const getListOfBattleplans = async () => {
-  try {
-    let response = await fetch(
-      'https://api-eu-central-1.graphcms.com/v2/ckqgykxxlgpi101wa1z9e5irj/master',
-      {
-        method: 'POST',
-        body: JSON.stringify({
-          query: `#graphql
-            {
-              battleplans {
-                  ... on Battleplan {
-                    id
-                    name
-                  }
-                }
-              }
-            }
-          `,
-        }),
-      }
-    );
-
-    let json = await response.json();
-
-    return json.data.grandAlliances;
-  } catch (error) {
-    console.error(error);
-  }
-};

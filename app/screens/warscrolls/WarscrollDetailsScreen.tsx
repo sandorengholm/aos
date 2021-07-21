@@ -69,7 +69,8 @@ const WarscrollDetailsScreen = ({ route }: WarscrollDetailsScreen) => {
 const themedStyles = (theme: CustomTheme) =>
   StyleSheet.create({
     container: {
-      padding: sizes.screenSpacing,
+      paddingHorizontal: sizes.screenSpacing,
+      paddingVertical: sizes.screenSpacing * 2,
     },
     scrollView: {
       backgroundColor: theme.colors.background,

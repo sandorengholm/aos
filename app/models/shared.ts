@@ -4,6 +4,8 @@ export interface IRichText {
 
 export interface IImage {
   url: string;
+  height?: number;
+  width?: number;
 }
 
 export enum WEAPON_TYPE {
@@ -22,7 +24,7 @@ export interface ISectionListData<T> {
 
 export interface IRule {
   name: string;
-  flavorText: string;
+  flavorText?: string;
   description: IRichText;
 }
 

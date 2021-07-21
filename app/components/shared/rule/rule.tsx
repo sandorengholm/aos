@@ -17,7 +17,9 @@ const Rule: React.FC<Rule> = ({ rule }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>{rule.name}</Text>
-      <Text style={styles.flavorText}>{rule.flavorText}</Text>
+      {rule.flavorText && (
+        <Text style={styles.flavorText}>{rule.flavorText}</Text>
+      )}
       <RichText text={rule.description} />
     </View>
   );

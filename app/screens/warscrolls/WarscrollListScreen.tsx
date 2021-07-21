@@ -41,7 +41,7 @@ const WarscrollListScreen = ({ navigation }: any) => {
           }
         />
       )}
-      keyExtractor={(item) => item.id}
+      keyExtractor={(_, index) => index.toString()}
       style={styles.container}
       renderSectionHeader={({ section: { title } }) => (
         <Text style={styles.header}>{title}</Text>

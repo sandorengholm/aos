@@ -1,7 +1,6 @@
 import { IImage, IRichText, IRule, WEAPON_TYPE } from './shared';
 
 export interface IWarscroll {
-  id: string;
   name: string;
   subname: string;
   image: IImage;

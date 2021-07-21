@@ -22,7 +22,8 @@ const CustomScrollView: React.FC<Props> = ({ children }) => {
 const themedStyles = (theme: CustomTheme) =>
   StyleSheet.create({
     container: {
-      padding: sizes.screenSpacing,
+      paddingHorizontal: sizes.screenSpacing,
+      paddingVertical: sizes.screenSpacing * 2,
     },
     scrollView: {
       backgroundColor: theme.colors.background,
