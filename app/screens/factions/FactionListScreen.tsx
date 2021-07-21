@@ -34,6 +34,8 @@ const FactionListScreen = ({ navigation }: Props) => {
 
   return (
     <SectionList
+      initialNumToRender={50}
+      stickySectionHeadersEnabled={true}
       sections={factionList}
       renderItem={({ item }) => (
         <ListItem

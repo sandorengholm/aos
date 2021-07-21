@@ -5,13 +5,13 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ListsScreen from './screens/ListsScreen';
 import BattleplansTab from './screens/BattleplansScreen';
-import RulesTab from './screens/RulesScreen';
 import FactionsScreen from './screens/FactionsScreen';
 import WarscrollsScreen from './screens/WarscrollsScreen';
 import { useColorScheme } from 'react-native';
 import { CustomDarkTheme } from './themes/dark';
 import { CustomDefaultTheme } from './themes/light';
 import { StatusBar } from 'expo-status-bar';
+import SettingsScreen from './screens/SettingsScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -25,7 +25,7 @@ const App = () => {
         theme={scheme === 'dark' ? CustomDarkTheme : CustomDefaultTheme}
       >
         <Tab.Navigator
-          screenOptions={({ route, navigation }) => ({
+          screenOptions={({ route }) => ({
             tabBarIcon: ({ focused, color }) => {
               let iconName = focused ? 'help' : 'help-outline';
 
@@ -43,9 +43,6 @@ const App = () => {
                   break;
                 case 'Battleplans':
                   iconName = focused ? 'map' : 'map-outline';
-                  break;
-                case 'Rules':
-                  iconName = focused ? 'receipt' : 'receipt-outline';
                   break;
                 case 'Settings':
                   iconName = focused ? 'cog' : 'cog-outline';
@@ -78,8 +75,7 @@ const App = () => {
           <Tab.Screen name="Factions" component={FactionsScreen} />
           <Tab.Screen name="Lists" component={ListsScreen} />
           <Tab.Screen name="Battleplans" component={BattleplansTab} />
-          {/* <Tab.Screen name="Rules" component={RulesTab} /> */}
-          <Tab.Screen name="Settings" component={RulesTab} />
+          <Tab.Screen name="Settings" component={SettingsScreen} />
         </Tab.Navigator>
       </NavigationContainer>
     </>

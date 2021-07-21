@@ -3,6 +3,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import BattleplanListScreen from './battleplans/BattleplanListScreen';
 import { IBattleplan } from '../models/battleplan';
 import BattleplanDetailsScreen from './battleplans/BattleplanDetailsScreen';
+import BattleplanRandomButton from '../components/battleplan/battleplan-random-button';
+import BattleplanProvider from '../contexts/battleplan-context';
 
 export type BattleplansRootStackParamList = {
   BattleplanList: undefined;
@@ -15,18 +17,25 @@ const Stack = createStackNavigator<BattleplansRootStackParamList>();
 
 const BattleplansScreen = () => {
   return (
-    <Stack.Navigator initialRouteName="BattleplanList">
-      <Stack.Screen
-        name="BattleplanList"
-        component={BattleplanListScreen}
-        options={{ title: 'Battleplans' }}
-      />
-      <Stack.Screen
-        name="BattleplanDetails"
-        component={BattleplanDetailsScreen}
-        options={({ route }) => ({ title: route.params.battleplan.name })}
-      />
-    </Stack.Navigator>
+    <BattleplanProvider>
+      <Stack.Navigator initialRouteName="BattleplanList">
+        <Stack.Screen
+          name="BattleplanList"
+          component={BattleplanListScreen}
+          options={({ navigation }) => ({
+            title: 'Battleplans',
+            headerRight: () => (
+              <BattleplanRandomButton navigation={navigation} />
+            ),
+          })}
+        />
+        <Stack.Screen
+          name="BattleplanDetails"
+          component={BattleplanDetailsScreen}
+          options={({ route }) => ({ title: route.params.battleplan?.name })}
+        />
+      </Stack.Navigator>
+    </BattleplanProvider>
   );
 };
 

@@ -1,8 +1,21 @@
+import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
-import { Text } from 'react-native';
+import SettingsListScreen from './settings/SettingsListScreen';
 
-const SettingsTab = () => {
-  return <Text>Settings</Text>;
+export type SettingsRootStackParamList = {
+  SettingsList: undefined;
 };
+
+const Stack = createStackNavigator<SettingsRootStackParamList>();
+
+const SettingsTab = () => (
+  <Stack.Navigator initialRouteName="SettingsList">
+    <Stack.Screen
+      name="SettingsList"
+      component={SettingsListScreen}
+      options={{ title: 'Settings' }}
+    />
+  </Stack.Navigator>
+);
 
 export default React.memo(SettingsTab);

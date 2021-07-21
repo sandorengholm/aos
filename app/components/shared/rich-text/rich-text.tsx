@@ -31,6 +31,7 @@ const RichText: React.FC<RichText> = ({ text, hasMargin }) => {
           table: styles.table,
           thead: styles.thead,
           td: styles.td,
+          li: styles.li,
         }}
         contentWidth={window.width}
       />
@@ -45,6 +46,9 @@ const themedStyles = (theme: CustomTheme) =>
       fontSize: sizes.font.xsmall,
     },
     descriptionContainer: {
+      marginBottom: sizes.spacing(2),
+    },
+    li: {
       marginBottom: sizes.spacing(2),
     },
     p: {

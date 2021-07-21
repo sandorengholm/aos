@@ -1,11 +1,7 @@
 import React from 'react';
-import { Image, StyleSheet } from 'react-native';
+import { Image } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
-import useCustomTheme from '../../hooks/useCustomTheme';
-import { CustomTheme } from '../../models/theme';
 import { BattleplansRootStackParamList } from '../BattleplansScreen';
-import ContentItem from '../../components/shared/content-item';
-import RichText from '../../components/shared/rich-text';
 import { useWindowDimensions } from 'react-native';
 import CustomScrollView from '../../components/shared/custom-scroll-view';
 import { sizes } from '../../helpers/sizes';
@@ -16,14 +12,12 @@ type Props = StackScreenProps<
   'BattleplanDetails'
 >;
 
-const BattleplanDetailsScreen = ({ route, navigation }: Props) => {
+const BattleplanDetailsScreen = ({ route }: Props) => {
   const { battleplan } = route.params;
 
-  const theme = useCustomTheme();
-  const styles = themedStyles(theme);
   const window = useWindowDimensions();
 
-  if (!battleplan.battleplanSections.length) return null;
+  if (!battleplan?.battleplanSections?.length) return null;
 
   return (
     <CustomScrollView>
@@ -51,13 +45,5 @@ const BattleplanDetailsScreen = ({ route, navigation }: Props) => {
     </CustomScrollView>
   );
 };
-
-const themedStyles = (theme: CustomTheme) =>
-  StyleSheet.create({
-    container: {
-      backgroundColor: theme.colors.background,
-      flex: 1,
-    },
-  });
 
 export default React.memo(BattleplanDetailsScreen);

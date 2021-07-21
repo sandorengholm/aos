@@ -31,6 +31,7 @@ const WarscrollListScreen = ({ navigation }: any) => {
 
   return (
     <SectionList
+      initialNumToRender={20}
       stickySectionHeadersEnabled={true}
       sections={warscrollList.filter((item) => item.data.length)}
       renderItem={({ item }) => (
