@@ -1,11 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import {
-  Table as ReactNativeTable,
-  Row,
-  RowProps,
-  TableProps,
-} from 'react-native-table-component';
+import { Table as ReactNativeTable, Row, RowProps, TableProps } from 'react-native-table-component';
 import { sizes } from '../../../helpers/sizes';
 import useCustomTheme from '../../../hooks/use-custom-theme';
 import { CustomTheme } from '../../../models/theme';
@@ -27,18 +22,14 @@ export const TableTitleRow: React.FC<RowProps> = React.memo((props) => {
   const theme = useCustomTheme();
   const styles = themedStyles(theme);
 
-  return (
-    <Row style={styles.titleRow} textStyle={styles.titleText} {...props} />
-  );
+  return <Row style={styles.titleRow} textStyle={styles.titleText} {...props} />;
 });
 
 export const TableHeaderRow: React.FC<RowProps> = React.memo((props) => {
   const theme = useCustomTheme();
   const styles = themedStyles(theme);
 
-  return (
-    <Row style={styles.headerRow} textStyle={styles.headerText} {...props} />
-  );
+  return <Row style={styles.headerRow} textStyle={styles.headerText} {...props} />;
 });
 
 export const TableRow: React.FC<RowProps> = React.memo((props) => {

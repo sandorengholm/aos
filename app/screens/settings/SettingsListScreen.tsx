@@ -17,17 +17,17 @@ const SettingsListScreen = ({}: Props) => {
 
   const onChange = (value: boolean) => {
     setSettings({
-      minimal: value,
+      showFlavorText: value,
     });
   };
 
   return (
     <CustomScrollView>
       <View style={styles.container}>
-        <Text style={styles.text}>Minimal</Text>
+        <Text style={styles.text}>Show Flavor Text</Text>
         <Switch
           onValueChange={onChange}
-          value={settings.minimal}
+          value={settings.showFlavorText}
           trackColor={{
             false: theme.colors.border,
             true: theme.colors.primary,

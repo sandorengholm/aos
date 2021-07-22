@@ -22,9 +22,7 @@ const ListItem: React.FC<ListItem> = ({ text, image, onPress }) => {
   const theme = useCustomTheme();
   const styles = themedStyles(theme);
 
-  const imageAspectRatio = image
-    ? (image?.height || 1) / (image?.width || 1)
-    : 1;
+  const imageAspectRatio = image ? (image?.height || 1) / (image?.width || 1) : 1;
 
   return (
     <TouchableOpacity onPress={onPress}>

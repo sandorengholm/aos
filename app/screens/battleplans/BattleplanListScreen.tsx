@@ -10,8 +10,7 @@ import { BattleplansRootStackParamList } from '../BattleplansScreen';
 type Props = StackScreenProps<BattleplansRootStackParamList, 'BattleplanList'>;
 
 const BattleplanListScreen = ({ navigation }: Props) => {
-  const { battleplans, refreshData, refreshing } =
-    React.useContext(BattleplanContext);
+  const { battleplans, refreshData, refreshing } = React.useContext(BattleplanContext);
 
   const theme = useCustomTheme();
   const styles = themedStyles(theme);

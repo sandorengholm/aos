@@ -6,10 +6,7 @@ import useCustomTheme from '../../hooks/use-custom-theme';
 import { CustomTheme } from '../../models/theme';
 import { FactionsRootStackParamList } from '../FactionsScreen';
 
-type Props = StackScreenProps<
-  FactionsRootStackParamList,
-  'FactionDetailsSubfactions'
->;
+type Props = StackScreenProps<FactionsRootStackParamList, 'FactionDetailsSubfactions'>;
 
 const FactionDetailsSubfactionsScreen = ({ route, navigation }: Props) => {
   const { data } = route.params;

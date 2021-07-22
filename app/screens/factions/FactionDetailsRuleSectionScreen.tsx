@@ -8,10 +8,7 @@ import RuleGroup from '../../components/shared/rule-group';
 import { sizes } from '../../helpers/sizes';
 import { FactionsRootStackParamList } from '../FactionsScreen';
 
-type Props = StackScreenProps<
-  FactionsRootStackParamList,
-  'FactionDetailsRuleSection'
->;
+type Props = StackScreenProps<FactionsRootStackParamList, 'FactionDetailsRuleSection'>;
 
 const FactionDetailsRuleSectionScreen = ({ route }: Props) => {
   const { data } = route.params;

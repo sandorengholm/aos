@@ -34,15 +34,10 @@ const WarscrollListItem = ({ warscroll, onPress }: WarscrollListItem) => {
           <Text numberOfLines={1} style={styles.title}>
             {text.getFormattedWarscrollName(warscroll)}
           </Text>
+          <Text style={styles.text}>Unit Size: {warscroll.unitSize || '1'}</Text>
+          <Text style={styles.text}>Point Cost: {warscroll.pointCost || '?'}</Text>
           <Text style={styles.text}>
-            Unit Size: {warscroll.unitSize || '1'}
-          </Text>
-          <Text style={styles.text}>
-            Point Cost: {warscroll.pointCost || '?'}
-          </Text>
-          <Text style={styles.text}>
-            Battlefield Role:{' '}
-            {text.getBattlefieldRoles(warscroll.battlefieldRole)}
+            Battlefield Role: {text.getBattlefieldRoles(warscroll.battlefieldRole)}
           </Text>
         </View>
       </View>

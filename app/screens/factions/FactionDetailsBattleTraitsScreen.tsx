@@ -4,10 +4,7 @@ import CustomScrollView from '../../components/shared/custom-scroll-view';
 import Rule from '../../components/shared/rule/rule';
 import { FactionsRootStackParamList } from '../FactionsScreen';
 
-type Props = StackScreenProps<
-  FactionsRootStackParamList,
-  'FactionDetailsBattleTraits'
->;
+type Props = StackScreenProps<FactionsRootStackParamList, 'FactionDetailsBattleTraits'>;
 
 const FactionDetailsBattleTraitsScreen = ({ route }: Props) => {
   const { data } = route.params;

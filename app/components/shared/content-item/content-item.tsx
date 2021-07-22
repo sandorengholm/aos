@@ -9,10 +9,7 @@ interface ContentItem {
   children?: React.ReactNode | React.ReactNode[];
 }
 
-const ContentItem: React.FC<ContentItem> = ({
-  title,
-  children,
-}: ContentItem) => {
+const ContentItem: React.FC<ContentItem> = ({ title, children }: ContentItem) => {
   const theme = useCustomTheme();
   const styles = themedStyles(theme);
 

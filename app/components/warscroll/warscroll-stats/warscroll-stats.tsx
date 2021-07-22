@@ -10,13 +10,7 @@ interface WarscrollStats {
   fly: boolean;
 }
 
-const WarscrollStats: React.FC<WarscrollStats> = ({
-  wounds,
-  save,
-  move,
-  bravery,
-  fly,
-}) => {
+const WarscrollStats: React.FC<WarscrollStats> = ({ wounds, save, move, bravery, fly }) => {
   if (!wounds || !save || !move || !bravery) {
     return null;
   }

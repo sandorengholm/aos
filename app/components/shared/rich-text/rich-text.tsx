@@ -12,8 +12,6 @@ interface RichText {
   hasMargin?: boolean;
 }
 
-// TODO: Make Rich Text Component support tables
-
 const RichText: React.FC<RichText> = ({ text, hasMargin }) => {
   const theme = useCustomTheme();
   const styles = themedStyles(theme);

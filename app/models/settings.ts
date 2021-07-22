@@ -1,7 +1,7 @@
 export interface ISettings {
-  minimal: boolean;
+  showFlavorText: boolean;
 }
 
 export const initialSettings: ISettings = {
-  minimal: false,
+  showFlavorText: true,
 };

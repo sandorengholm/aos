@@ -1,10 +1,7 @@
 import React from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-function useAsyncStorage<T>(
-  key: string,
-  initialValue: T
-): [T, (value: T) => void] {
+function useAsyncStorage<T>(key: string, initialValue: T): [T, (value: T) => void] {
   const [storedValue, setStoredValue] = React.useState(initialValue);
 
   React.useEffect(() => {

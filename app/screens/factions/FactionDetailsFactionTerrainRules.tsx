@@ -6,10 +6,7 @@ import RichText from '../../components/shared/rich-text';
 import Title from '../../components/shared/title';
 import { FactionsRootStackParamList } from '../FactionsScreen';
 
-type Props = StackScreenProps<
-  FactionsRootStackParamList,
-  'FactionDetailsFactionTerrainRules'
->;
+type Props = StackScreenProps<FactionsRootStackParamList, 'FactionDetailsFactionTerrainRules'>;
 
 const FactionDetailsFactionTerrainRulesScreen = ({ route }: Props) => {
   const { data } = route.params;
@@ -24,9 +21,7 @@ const FactionDetailsFactionTerrainRulesScreen = ({ route }: Props) => {
 
           <RichText hasMargin={true} text={factionTerrainRule.description} />
 
-          <FactionSceneryWarscroll
-            sceneryWarscroll={factionTerrainRule.sceneryWarscroll}
-          />
+          <FactionSceneryWarscroll sceneryWarscroll={factionTerrainRule.sceneryWarscroll} />
         </React.Fragment>
       ))}
     </CustomScrollView>

@@ -7,10 +7,7 @@ import CustomScrollView from '../../components/shared/custom-scroll-view';
 import { sizes } from '../../helpers/sizes';
 import Rule from '../../components/shared/rule';
 
-type Props = StackScreenProps<
-  BattleplansRootStackParamList,
-  'BattleplanDetails'
->;
+type Props = StackScreenProps<BattleplansRootStackParamList, 'BattleplanDetails'>;
 
 const BattleplanDetailsScreen = ({ route }: Props) => {
   const { battleplan } = route.params;

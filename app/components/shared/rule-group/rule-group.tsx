@@ -6,16 +6,16 @@ import Rule from '../../shared/rule/rule';
 
 interface RuleGroup {
   name: string;
-  description: IRichText;
+  description?: IRichText;
   rules?: IRule[];
 }
 
 const RuleGroup: React.FC<RuleGroup> = ({ name, description, rules }) => {
-  if (!rules?.length && !name && !description) return null;
+  if (!rules?.length) return null;
 
   return (
     <ContentItem title={name}>
-      <RichText hasMargin={true} text={description} />
+      {description && <RichText hasMargin={true} text={description} />}
       {rules?.map((rule, index) => (
         <Rule key={index} rule={rule} />
       ))}

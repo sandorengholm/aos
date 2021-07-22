@@ -4,10 +4,7 @@ import FactionSubfactionItem from '../../components/faction/faction-subfaction-i
 import CustomScrollView from '../../components/shared/custom-scroll-view';
 import { FactionsRootStackParamList } from '../FactionsScreen';
 
-type Props = StackScreenProps<
-  FactionsRootStackParamList,
-  'FactionDetailsSubfactionDetails'
->;
+type Props = StackScreenProps<FactionsRootStackParamList, 'FactionDetailsSubfactionDetails'>;
 
 const FactionDetailsSubfactionDetailsScreen = ({ route }: Props) => {
   const { subfaction } = route.params;

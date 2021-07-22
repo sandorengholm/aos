@@ -9,15 +9,11 @@ import Title from '../../shared/title';
 
 interface WarscrollHeader {
   name: string;
-  flavorText: string;
+  flavorText?: string;
   image: IImage;
 }
 
-const WarscrollHeader: React.FC<WarscrollHeader> = ({
-  name,
-  flavorText,
-  image,
-}) => {
+const WarscrollHeader: React.FC<WarscrollHeader> = ({ name, flavorText, image }) => {
   const theme = useCustomTheme();
   const styles = themedStyles(theme);
   const { settings } = React.useContext(SettingsContext);
@@ -26,13 +22,11 @@ const WarscrollHeader: React.FC<WarscrollHeader> = ({
     <View style={styles.container}>
       <View style={styles.textContainer}>
         <Title text={name} />
-        {!settings.minimal && (
+        {settings.showFlavorText && flavorText && (
           <Text style={styles.flavorText}>{flavorText}</Text>
         )}
       </View>
-      {!settings.minimal && (
-        <Image source={{ uri: image.url }} style={styles.image} />
-      )}
+      {settings.showFlavorText && <Image source={{ uri: image.url }} style={styles.image} />}
     </View>
   );
 };

@@ -24,9 +24,7 @@ const BattleplansScreen = () => {
           component={BattleplanListScreen}
           options={({ navigation }) => ({
             title: 'Battleplans',
-            headerRight: () => (
-              <BattleplanRandomButton navigation={navigation} />
-            ),
+            headerRight: () => <BattleplanRandomButton navigation={navigation} />,
           })}
         />
         <Stack.Screen

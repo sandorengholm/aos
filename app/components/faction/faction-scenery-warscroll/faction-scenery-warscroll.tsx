@@ -14,9 +14,7 @@ interface FactionSceneryWarscroll {
   sceneryWarscroll: ISceneryWarscroll;
 }
 
-const FactionSceneryWarscroll = ({
-  sceneryWarscroll,
-}: FactionSceneryWarscroll) => {
+const FactionSceneryWarscroll = ({ sceneryWarscroll }: FactionSceneryWarscroll) => {
   const theme = useCustomTheme();
   const styles = themedStyles(theme);
 

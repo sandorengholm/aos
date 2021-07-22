@@ -9,8 +9,7 @@ import { IWarscroll } from '../../models/warscroll';
 import { getListOfWarscrolls } from '../../services/warscroll-service';
 
 const WarscrollListScreen = ({ navigation }: any) => {
-  const [warscrollList, setWarscrollList] =
-    React.useState<ISectionListData<IWarscroll>[]>();
+  const [warscrollList, setWarscrollList] = React.useState<ISectionListData<IWarscroll>[]>();
   const [refreshing, setRefreshing] = React.useState(false);
 
   const theme = useCustomTheme();
@@ -37,16 +36,12 @@ const WarscrollListScreen = ({ navigation }: any) => {
       renderItem={({ item }) => (
         <WarscrollListItem
           warscroll={item}
-          onPress={() =>
-            navigation.navigate('WarscrollDetails', { warscroll: item })
-          }
+          onPress={() => navigation.navigate('WarscrollDetails', { warscroll: item })}
         />
       )}
       keyExtractor={(_, index) => index.toString()}
       style={styles.container}
-      renderSectionHeader={({ section: { title } }) => (
-        <Text style={styles.header}>{title}</Text>
-      )}
+      renderSectionHeader={({ section: { title } }) => <Text style={styles.header}>{title}</Text>}
       refreshing={refreshing}
       onRefresh={fetchData}
       ItemSeparatorComponent={() => <View style={styles.separator} />}

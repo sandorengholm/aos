@@ -7,18 +7,18 @@ import RichText from '../../shared/rich-text/rich-text';
 import Rule from '../../shared/rule/rule';
 
 interface WarscrollMagic {
-  magic?: IRichText;
+  description?: IRichText;
   spells?: IRule[];
 }
 
-const WarscrollMagic: React.FC<WarscrollMagic> = ({ magic, spells }) => {
-  if (!spells?.length && !magic?.html) return null;
+const WarscrollMagic: React.FC<WarscrollMagic> = ({ description, spells }) => {
+  if (!spells?.length && !description?.html) return null;
 
   return (
     <ContentItem title="Magic">
-      {!!magic?.html && (
+      {description?.html && (
         <View style={styles.container}>
-          <RichText text={magic} />
+          <RichText text={description} />
         </View>
       )}
       {spells?.map((spell, index) => (
