@@ -3,7 +3,7 @@ import { useWindowDimensions } from 'react-native';
 import { StyleSheet, View } from 'react-native';
 import RenderHtml from 'react-native-render-html';
 import { sizes } from '../../../helpers/sizes';
-import useCustomTheme from '../../../hooks/useCustomTheme';
+import useCustomTheme from '../../../hooks/use-custom-theme';
 import { IRichText } from '../../../models/shared';
 import { CustomTheme } from '../../../models/theme';
 

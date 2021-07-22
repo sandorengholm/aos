@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, SectionList, View } from 'react-native';
 import WarscrollListItem from '../../components/warscroll/warscroll-list-item';
 import { sizes } from '../../helpers/sizes';
-import useCustomTheme from '../../hooks/useCustomTheme';
+import useCustomTheme from '../../hooks/use-custom-theme';
 import { ISectionListData } from '../../models/shared';
 import { CustomTheme } from '../../models/theme';
 import { IWarscroll } from '../../models/warscroll';

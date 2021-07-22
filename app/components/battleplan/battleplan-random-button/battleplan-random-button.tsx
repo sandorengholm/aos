@@ -3,7 +3,7 @@ import { StyleSheet, TouchableHighlight } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { BattleplanContext } from '../../../contexts/battleplan-context';
 import { sizes } from '../../../helpers/sizes';
-import useCustomTheme from '../../../hooks/useCustomTheme';
+import useCustomTheme from '../../../hooks/use-custom-theme';
 import { CustomTheme } from '../../../models/theme';
 
 interface Props {

@@ -2,10 +2,10 @@ import { StackScreenProps } from '@react-navigation/stack';
 import React from 'react';
 import { View, StyleSheet, Switch, Text } from 'react-native';
 import CustomScrollView from '../../components/shared/custom-scroll-view';
-import useCustomTheme from '../../hooks/useCustomTheme';
+import { SettingsContext } from '../../contexts/settings-context';
+import useCustomTheme from '../../hooks/use-custom-theme';
 import { CustomTheme } from '../../models/theme';
 import { SettingsRootStackParamList } from '../SettingsScreen';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 type Props = StackScreenProps<SettingsRootStackParamList, 'SettingsList'>;
 
@@ -13,33 +13,21 @@ const SettingsListScreen = ({}: Props) => {
   const theme = useCustomTheme();
   const styles = themedStyles(theme);
 
-  const [isEnabled, setIsEnabled] = React.useState(false);
+  const { settings, setSettings } = React.useContext(SettingsContext);
 
-  const toggleSwitch = () => {
-    setIsEnabled((prev) => {
-      AsyncStorage.setItem('minimalistic', JSON.stringify(!prev));
-      return !prev;
+  const onChange = (value: boolean) => {
+    setSettings({
+      minimal: value,
     });
   };
-
-  const fetchSettings = React.useCallback(async () => {
-    const minimalistic = await AsyncStorage.getItem('minimalistic');
-    if (minimalistic) {
-      setIsEnabled(JSON.parse(minimalistic));
-    }
-  }, []);
-
-  React.useEffect(() => {
-    fetchSettings();
-  }, []);
 
   return (
     <CustomScrollView>
       <View style={styles.container}>
-        <Text style={styles.text}>Minimalistic</Text>
+        <Text style={styles.text}>Minimal</Text>
         <Switch
-          onValueChange={toggleSwitch}
-          value={isEnabled}
+          onValueChange={onChange}
+          value={settings.minimal}
           trackColor={{
             false: theme.colors.border,
             true: theme.colors.primary,

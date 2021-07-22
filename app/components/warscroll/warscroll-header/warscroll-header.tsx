@@ -1,7 +1,8 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
+import { SettingsContext } from '../../../contexts/settings-context';
 import { sizes } from '../../../helpers/sizes';
-import useCustomTheme from '../../../hooks/useCustomTheme';
+import useCustomTheme from '../../../hooks/use-custom-theme';
 import { IImage } from '../../../models/shared';
 import { CustomTheme } from '../../../models/theme';
 import Title from '../../shared/title';
@@ -19,14 +20,19 @@ const WarscrollHeader: React.FC<WarscrollHeader> = ({
 }) => {
   const theme = useCustomTheme();
   const styles = themedStyles(theme);
+  const { settings } = React.useContext(SettingsContext);
 
   return (
     <View style={styles.container}>
       <View style={styles.textContainer}>
         <Title text={name} />
-        <Text style={styles.flavorText}>{flavorText}</Text>
+        {!settings.minimal && (
+          <Text style={styles.flavorText}>{flavorText}</Text>
+        )}
       </View>
-      <Image source={{ uri: image.url }} style={styles.image} />
+      {!settings.minimal && (
+        <Image source={{ uri: image.url }} style={styles.image} />
+      )}
     </View>
   );
 };

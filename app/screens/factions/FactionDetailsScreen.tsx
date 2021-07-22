@@ -3,7 +3,7 @@ import { StyleSheet, FlatList, View } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import { FactionsRootStackParamList } from '../FactionsScreen';
 import ListItem from '../../components/shared/list-item';
-import useCustomTheme from '../../hooks/useCustomTheme';
+import useCustomTheme from '../../hooks/use-custom-theme';
 import { CustomTheme } from '../../models/theme';
 
 type Props = StackScreenProps<FactionsRootStackParamList, 'FactionDetails'>;

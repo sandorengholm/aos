@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, View, SectionList, Text } from 'react-native';
 import ListItem from '../../components/shared/list-item';
 import { sizes } from '../../helpers/sizes';
-import useCustomTheme from '../../hooks/useCustomTheme';
+import useCustomTheme from '../../hooks/use-custom-theme';
 import { IFaction } from '../../models/faction';
 import { ISectionListData } from '../../models/shared';
 import { CustomTheme } from '../../models/theme';

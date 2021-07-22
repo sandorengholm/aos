@@ -7,7 +7,7 @@ import {
   TableProps,
 } from 'react-native-table-component';
 import { sizes } from '../../../helpers/sizes';
-import useCustomTheme from '../../../hooks/useCustomTheme';
+import useCustomTheme from '../../../hooks/use-custom-theme';
 import { CustomTheme } from '../../../models/theme';
 
 export const Table: React.FC<TableProps> = React.memo((props) => {

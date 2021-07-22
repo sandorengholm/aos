@@ -8,7 +8,7 @@ import {
   View,
 } from 'react-native';
 import { sizes } from '../../../helpers/sizes';
-import useCustomTheme from '../../../hooks/useCustomTheme';
+import useCustomTheme from '../../../hooks/use-custom-theme';
 import { IImage } from '../../../models/shared';
 import { CustomTheme } from '../../../models/theme';
 

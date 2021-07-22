@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { sizes } from '../../../helpers/sizes';
 import { text } from '../../../helpers/text';
-import useCustomTheme from '../../../hooks/useCustomTheme';
+import useCustomTheme from '../../../hooks/use-custom-theme';
 import { CustomTheme } from '../../../models/theme';
 import { IWarscroll } from '../../../models/warscroll';
 

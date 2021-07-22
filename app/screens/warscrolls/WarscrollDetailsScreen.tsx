@@ -11,7 +11,7 @@ import WarscrollStats from '../../components/warscroll/warscroll-stats';
 import WarscrollWeapons from '../../components/warscroll/warscroll-weapons';
 import { sizes } from '../../helpers/sizes';
 import { text } from '../../helpers/text';
-import useCustomTheme from '../../hooks/useCustomTheme';
+import useCustomTheme from '../../hooks/use-custom-theme';
 import { CustomTheme } from '../../models/theme';
 import { IWarscroll } from '../../models/warscroll';
 

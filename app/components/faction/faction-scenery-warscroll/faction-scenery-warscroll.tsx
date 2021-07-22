@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import { sizes } from '../../../helpers/sizes';
-import useCustomTheme from '../../../hooks/useCustomTheme';
+import useCustomTheme from '../../../hooks/use-custom-theme';
 import { ISceneryWarscroll } from '../../../models/faction';
 import { CustomTheme } from '../../../models/theme';
 import ContentItem from '../../shared/content-item';

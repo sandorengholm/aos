@@ -3,7 +3,7 @@ import React from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
 import ListItem from '../../components/shared/list-item';
 import { BattleplanContext } from '../../contexts/battleplan-context';
-import useCustomTheme from '../../hooks/useCustomTheme';
+import useCustomTheme from '../../hooks/use-custom-theme';
 import { CustomTheme } from '../../models/theme';
 import { BattleplansRootStackParamList } from '../BattleplansScreen';
 

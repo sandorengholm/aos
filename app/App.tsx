@@ -12,6 +12,7 @@ import { CustomDarkTheme } from './themes/dark';
 import { CustomDefaultTheme } from './themes/light';
 import { StatusBar } from 'expo-status-bar';
 import SettingsScreen from './screens/SettingsScreen';
+import SettingsProvider from './contexts/settings-context';
 
 const Tab = createBottomTabNavigator();
 
@@ -19,7 +20,7 @@ const App = () => {
   const scheme = useColorScheme();
 
   return (
-    <>
+    <SettingsProvider>
       <StatusBar style={'auto'} />
       <NavigationContainer
         theme={scheme === 'dark' ? CustomDarkTheme : CustomDefaultTheme}
@@ -78,7 +79,7 @@ const App = () => {
           <Tab.Screen name="Settings" component={SettingsScreen} />
         </Tab.Navigator>
       </NavigationContainer>
-    </>
+    </SettingsProvider>
   );
 };
 
