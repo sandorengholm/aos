@@ -5,7 +5,7 @@ import CustomScrollView from '../../components/shared/custom-scroll-view';
 import RichText from '../../components/shared/rich-text';
 import Rule from '../../components/shared/rule';
 import RuleGroup from '../../components/shared/rule-group';
-import { sizes } from '../../helpers/sizes';
+import { spacing } from '../../helpers/sizes';
 import { FactionsRootStackParamList } from '../FactionsScreen';
 
 type Props = StackScreenProps<FactionsRootStackParamList, 'FactionDetailsRuleSection'>;
@@ -40,7 +40,7 @@ const FactionDetailsRuleSectionScreen = ({ route }: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: sizes.spacing(2),
+    marginBottom: spacing(2),
   },
 });
 

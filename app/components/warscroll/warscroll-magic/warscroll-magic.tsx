@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { sizes } from '../../../helpers/sizes';
+import { spacing } from '../../../helpers/sizes';
 import { IRichText, IRule } from '../../../models/shared';
 import ContentItem from '../../shared/content-item/content-item';
 import RichText from '../../shared/rich-text/rich-text';
@@ -30,7 +30,7 @@ const WarscrollMagic: React.FC<WarscrollMagic> = ({ description, spells }) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: sizes.spacing(2),
+    marginBottom: spacing(2),
   },
 });
 

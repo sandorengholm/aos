@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { SettingsContext } from '../../../contexts/settings-context';
-import { sizes } from '../../../helpers/sizes';
+import { sizes, spacing } from '../../../helpers/sizes';
 import useCustomTheme from '../../../hooks/use-custom-theme';
 import { IRule } from '../../../models/shared';
 import { CustomTheme } from '../../../models/theme';
@@ -33,20 +33,20 @@ const themedStyles = (theme: CustomTheme) =>
     container: {
       borderWidth: 1,
       borderColor: theme.colors.border,
-      marginBottom: sizes.spacing(2),
-      padding: sizes.spacing(2),
+      marginBottom: spacing(2),
+      padding: spacing(2),
     },
     flavorText: {
       color: theme.colors.text,
       fontSize: sizes.font.xsmall,
       fontStyle: 'italic',
-      marginBottom: sizes.spacing(1),
+      marginBottom: spacing(1),
     },
     header: {
       color: theme.colors.text,
       fontSize: sizes.font.xsmall,
       fontWeight: 'bold',
-      marginBottom: sizes.spacing(1),
+      marginBottom: spacing(1),
     },
   });
 

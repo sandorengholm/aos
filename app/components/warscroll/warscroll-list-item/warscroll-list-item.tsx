@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { sizes } from '../../../helpers/sizes';
+import { sizes, spacing } from '../../../helpers/sizes';
 import { text } from '../../../helpers/text';
 import useCustomTheme from '../../../hooks/use-custom-theme';
 import { CustomTheme } from '../../../models/theme';
@@ -51,8 +51,8 @@ const themedStyles = (theme: CustomTheme) =>
       backgroundColor: theme.colors.background,
       flex: 1,
       flexDirection: 'row',
-      paddingHorizontal: sizes.spacing(1),
-      paddingVertical: sizes.spacing(2),
+      paddingHorizontal: spacing(1),
+      paddingVertical: spacing(2),
     },
     image: {
       borderRadius: 5,
@@ -67,17 +67,17 @@ const themedStyles = (theme: CustomTheme) =>
     },
     text: {
       fontSize: sizes.font.xsmall,
-      marginBottom: sizes.spacing(1),
+      marginBottom: spacing(1),
       color: theme.colors.text,
     },
     textContainer: {
       flex: 1,
-      paddingLeft: sizes.spacing(2),
+      paddingLeft: spacing(2),
     },
     title: {
       fontSize: sizes.font.xsmall,
       fontWeight: 'bold',
-      marginBottom: sizes.spacing(1),
+      marginBottom: spacing(1),
       color: theme.colors.text,
     },
   });

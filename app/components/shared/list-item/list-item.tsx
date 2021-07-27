@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { sizes } from '../../../helpers/sizes';
+import { sizes, spacing } from '../../../helpers/sizes';
 import useCustomTheme from '../../../hooks/use-custom-theme';
 import { IImage } from '../../../models/shared';
 import { CustomTheme } from '../../../models/theme';
@@ -33,7 +33,7 @@ const ListItem: React.FC<ListItem> = ({ text, image, onPress }) => {
             style={{
               width: 75,
               height: 75 * imageAspectRatio,
-              marginRight: sizes.spacing(2),
+              marginRight: spacing(2),
             }}
           />
         )}
@@ -48,19 +48,19 @@ const themedStyles = (theme: CustomTheme) =>
     container: {
       backgroundColor: theme.colors.background,
       paddingHorizontal: sizes.screenSpacing,
-      paddingVertical: sizes.spacing(4),
+      paddingVertical: spacing(4),
     },
     containerWithImage: {
       alignItems: 'center',
       backgroundColor: theme.colors.background,
       flexDirection: 'row',
       paddingHorizontal: sizes.screenSpacing,
-      paddingVertical: sizes.spacing(2),
+      paddingVertical: spacing(2),
     },
     text: {
       color: theme.colors.text,
       fontSize: sizes.font.small,
-      marginBottom: sizes.spacing(1),
+      marginBottom: spacing(1),
     },
   });
 

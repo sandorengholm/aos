@@ -2,7 +2,7 @@ import { StackScreenProps } from '@react-navigation/stack';
 import React from 'react';
 import { StyleSheet, View, SectionList, Text } from 'react-native';
 import ListItem from '../../components/shared/list-item';
-import { sizes } from '../../helpers/sizes';
+import { sizes, spacing } from '../../helpers/sizes';
 import useCustomTheme from '../../hooks/use-custom-theme';
 import { IFaction } from '../../models/faction';
 import { ISectionListData } from '../../models/shared';
@@ -64,7 +64,7 @@ const themedStyles = (theme: CustomTheme) =>
       color: theme.colors.text,
       fontSize: sizes.font.medium,
       fontWeight: 'bold',
-      padding: sizes.spacing(3),
+      padding: spacing(3),
     },
     separator: {
       backgroundColor: theme.colors.border,

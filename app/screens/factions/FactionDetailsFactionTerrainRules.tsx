@@ -21,7 +21,9 @@ const FactionDetailsFactionTerrainRulesScreen = ({ route }: Props) => {
 
           <RichText hasMargin={true} text={factionTerrainRule.description} />
 
-          <FactionSceneryWarscroll sceneryWarscroll={factionTerrainRule.sceneryWarscroll} />
+          {factionTerrainRule.sceneryWarscrolls.map((sceneryWarscroll, index) => (
+            <FactionSceneryWarscroll key={index} sceneryWarscroll={sceneryWarscroll} />
+          ))}
         </React.Fragment>
       ))}
     </CustomScrollView>

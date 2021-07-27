@@ -135,11 +135,10 @@ export const getListOfFactions = async () => {
                       ... on FactionTerrainRule {
                           id
                           name
-                          flavorText
                           description {
                               html
                           }
-                          sceneryWarscroll {
+                          sceneryWarscrolls {
                               ... on SceneryWarscroll {
                                   name
                                   flavorText

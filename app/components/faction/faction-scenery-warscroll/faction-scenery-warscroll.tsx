@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, StyleSheet, ScrollView } from 'react-native';
-import { sizes } from '../../../helpers/sizes';
+import { View, StyleSheet } from 'react-native';
+import { spacing } from '../../../helpers/sizes';
 import useCustomTheme from '../../../hooks/use-custom-theme';
 import { ISceneryWarscroll } from '../../../models/faction';
 import { CustomTheme } from '../../../models/theme';
@@ -48,8 +48,8 @@ const themedStyles = (theme: CustomTheme) =>
     container: {
       borderWidth: 1,
       borderColor: theme.colors.border,
-      marginBottom: sizes.spacing(2),
-      padding: sizes.spacing(2),
+      marginBottom: spacing(2),
+      padding: spacing(2),
     },
   });
 

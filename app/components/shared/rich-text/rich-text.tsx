@@ -2,7 +2,7 @@ import React from 'react';
 import { useWindowDimensions } from 'react-native';
 import { StyleSheet, View } from 'react-native';
 import RenderHtml from 'react-native-render-html';
-import { sizes } from '../../../helpers/sizes';
+import { sizes, spacing } from '../../../helpers/sizes';
 import useCustomTheme from '../../../hooks/use-custom-theme';
 import { IRichText } from '../../../models/shared';
 import { CustomTheme } from '../../../models/theme';
@@ -22,7 +22,7 @@ const RichText: React.FC<RichText> = ({ text, hasMargin }) => {
   return (
     <View style={hasMargin ? styles.descriptionContainer : undefined}>
       <RenderHtml
-        source={{ html: text.html }}
+        source={{ html: text.html.replace('<p></p>', '<p>&nbsp;</p>') }}
         baseStyle={styles.base}
         tagsStyles={{
           p: styles.p,
@@ -44,10 +44,10 @@ const themedStyles = (theme: CustomTheme) =>
       fontSize: sizes.font.xsmall,
     },
     descriptionContainer: {
-      marginBottom: sizes.spacing(2),
+      marginBottom: spacing(2),
     },
     li: {
-      marginBottom: sizes.spacing(2),
+      marginBottom: spacing(2),
     },
     p: {
       color: theme.colors.text,
@@ -55,8 +55,8 @@ const themedStyles = (theme: CustomTheme) =>
       margin: 0,
     },
     table: {
-      marginTop: sizes.spacing(4),
-      marginHorizontal: -sizes.spacing(2),
+      marginTop: spacing(4),
+      marginHorizontal: -spacing(2),
     },
     thead: {
       backgroundColor: theme.colors.primary,
@@ -65,7 +65,7 @@ const themedStyles = (theme: CustomTheme) =>
       fontSize: sizes.font.xsmall,
     },
     td: {
-      margin: sizes.spacing(1),
+      margin: spacing(1),
       textAlign: 'center',
       fontSize: sizes.font.xsmall,
     },

@@ -1,30 +1,21 @@
 import React from 'react';
 import { StyleSheet, TouchableHighlight } from 'react-native';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { BattleplanContext } from '../../../contexts/battleplan-context';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import { spacing } from '../../../helpers/sizes';
 import useCustomTheme from '../../../hooks/use-custom-theme';
 import { CustomTheme } from '../../../models/theme';
 
 interface Props {
-  navigation: any;
+  onPress: () => void;
 }
 
-const BattleplanRandomButton = ({ navigation }: Props) => {
-  const { battleplans } = React.useContext(BattleplanContext);
-
+const RefreshButton = ({ onPress }: Props) => {
   const theme = useCustomTheme();
   const styles = themedStyles(theme);
 
-  const onPress = () => {
-    navigation.navigate('BattleplanDetails', {
-      battleplan: battleplans?.[Math.floor(Math.random() * battleplans.length)],
-    });
-  };
-
   return (
     <TouchableHighlight style={styles.touchable} onPress={onPress}>
-      <FontAwesome5 name="dice" size={20} color={theme.colors.primary} />
+      <Ionicons name="refresh" size={20} color={theme.colors.primary} />
     </TouchableHighlight>
   );
 };
@@ -36,4 +27,4 @@ const themedStyles = (theme: CustomTheme) =>
     },
   });
 
-export default React.memo(BattleplanRandomButton);
+export default React.memo(RefreshButton);

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text } from 'react-native';
-import { sizes } from '../../../helpers/sizes';
+import { sizes, spacing } from '../../../helpers/sizes';
 import useCustomTheme from '../../../hooks/use-custom-theme';
 import { CustomTheme } from '../../../models/theme';
 
@@ -21,7 +21,7 @@ const themedStyles = (theme: CustomTheme) =>
       color: theme.colors.text,
       fontSize: sizes.font.medium,
       fontWeight: 'bold',
-      marginBottom: sizes.spacing(2),
+      marginBottom: spacing(2),
     },
   });
 

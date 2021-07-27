@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { sizes } from '../../../helpers/sizes';
+import { sizes, spacing } from '../../../helpers/sizes';
 import useCustomTheme from '../../../hooks/use-custom-theme';
 import { CustomTheme } from '../../../models/theme';
 
@@ -24,13 +24,13 @@ const ContentItem: React.FC<ContentItem> = ({ title, children }: ContentItem) =>
 const themedStyles = (theme: CustomTheme) =>
   StyleSheet.create({
     content: {
-      marginBottom: sizes.spacing(2),
+      marginBottom: spacing(2),
     },
     header: {
       color: theme.colors.text,
       fontSize: sizes.font.small,
       fontWeight: 'bold',
-      marginBottom: sizes.spacing(2),
+      marginBottom: spacing(2),
     },
   });
 

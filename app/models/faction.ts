@@ -19,9 +19,8 @@ export interface ISubfaction {
 
 export interface IFactionTerrainRule {
   name: string;
-  flavorText: string;
   description: IRichText;
-  sceneryWarscroll: ISceneryWarscroll;
+  sceneryWarscrolls: ISceneryWarscroll[];
 }
 
 export interface ISceneryWarscroll {

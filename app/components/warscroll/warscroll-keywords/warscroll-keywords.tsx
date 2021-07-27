@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { sizes } from '../../../helpers/sizes';
+import { sizes, spacing } from '../../../helpers/sizes';
 import useCustomTheme from '../../../hooks/use-custom-theme';
 import { CustomTheme } from '../../../models/theme';
 
@@ -27,20 +27,20 @@ const themedStyles = (theme: CustomTheme) =>
     container: {
       borderWidth: 1,
       borderColor: theme.colors.border,
-      marginBottom: sizes.spacing(2),
+      marginBottom: spacing(2),
     },
     title: {
       backgroundColor: theme.colors.primary,
       color: theme.colors.primaryContrast,
       fontSize: sizes.font.xsmall,
       fontWeight: 'bold',
-      padding: sizes.spacing(2),
+      padding: spacing(2),
     },
     text: {
       color: theme.colors.text,
       fontSize: sizes.font.xsmall,
       fontWeight: 'bold',
-      margin: sizes.spacing(2),
+      margin: spacing(2),
     },
   });
 

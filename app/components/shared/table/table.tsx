@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Table as ReactNativeTable, Row, RowProps, TableProps } from 'react-native-table-component';
-import { sizes } from '../../../helpers/sizes';
+import { sizes, spacing } from '../../../helpers/sizes';
 import useCustomTheme from '../../../hooks/use-custom-theme';
 import { CustomTheme } from '../../../models/theme';
 
@@ -44,7 +44,7 @@ const themedStyles = (theme: CustomTheme) =>
     container: {
       borderWidth: 1,
       borderColor: theme.colors.border,
-      marginBottom: sizes.spacing(2),
+      marginBottom: spacing(2),
     },
     headerRow: {
       backgroundColor: theme.colors.primary,
@@ -54,12 +54,12 @@ const themedStyles = (theme: CustomTheme) =>
       color: theme.colors.primaryContrast,
       fontSize: sizes.font.xsmall,
       fontWeight: 'bold',
-      margin: sizes.spacing(1),
+      margin: spacing(1),
     },
     text: {
       color: theme.colors.text,
       fontSize: sizes.font.xsmall,
-      margin: sizes.spacing(1),
+      margin: spacing(1),
       textAlign: 'center',
     },
     titleRow: {
@@ -68,6 +68,6 @@ const themedStyles = (theme: CustomTheme) =>
     titleText: {
       color: theme.colors.text,
       fontSize: sizes.font.xsmall,
-      margin: sizes.spacing(2),
+      margin: spacing(2),
     },
   });
