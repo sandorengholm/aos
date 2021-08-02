@@ -100,7 +100,12 @@ export const getListOfWarscrolls = async () => {
 
     let json = await response.json();
 
-    return json.data.factions as ISectionListData<IWarscroll>[];
+    const warscrollList = json.data.factions as ISectionListData<IWarscroll>[];
+
+    return warscrollList.map((faction) => ({
+      ...faction,
+      data: faction.data.sort((a, b) => a.name.localeCompare(b.name)),
+    }));
   } catch (error) {
     console.error(error);
   }

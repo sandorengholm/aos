@@ -1,6 +1,13 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Table as ReactNativeTable, Row, RowProps, TableProps } from 'react-native-table-component';
+import {
+  Table as ReactNativeTable,
+  Row,
+  RowProps,
+  TableProps,
+  Cell,
+} from 'react-native-table-component';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { sizes, spacing } from '../../../helpers/sizes';
 import useCustomTheme from '../../../hooks/use-custom-theme';
 import { CustomTheme } from '../../../models/theme';
@@ -22,25 +29,39 @@ export const TableTitleRow: React.FC<RowProps> = React.memo((props) => {
   const theme = useCustomTheme();
   const styles = themedStyles(theme);
 
-  return <Row style={styles.titleRow} textStyle={styles.titleText} {...props} />;
+  return <TableRow style={styles.titleRow} textStyle={styles.titleText} {...props} />;
 });
 
 export const TableHeaderRow: React.FC<RowProps> = React.memo((props) => {
   const theme = useCustomTheme();
   const styles = themedStyles(theme);
 
-  return <Row style={styles.headerRow} textStyle={styles.headerText} {...props} />;
+  return <TableRow style={styles.headerRow} textStyle={styles.headerText} {...props} />;
 });
 
 export const TableRow: React.FC<RowProps> = React.memo((props) => {
   const theme = useCustomTheme();
   const styles = themedStyles(theme);
 
-  return <Row textStyle={styles.text} {...props} />;
+  const asteriskSymbol = () => (
+    <View style={styles.asterixContainer}>
+      <FontAwesome5 name="certificate" size={10} color={theme.colors.text} />
+    </View>
+  );
+
+  const data = props.data?.map((cell) => {
+    if (cell === '*') return asteriskSymbol();
+    return cell;
+  });
+
+  return <Row textStyle={styles.text} {...{ ...props, data }} />;
 });
 
 const themedStyles = (theme: CustomTheme) =>
   StyleSheet.create({
+    asterixContainer: {
+      alignItems: 'center',
+    },
     container: {
       borderWidth: 1,
       borderColor: theme.colors.border,
