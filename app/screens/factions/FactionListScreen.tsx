@@ -2,35 +2,19 @@ import { StackScreenProps } from '@react-navigation/stack';
 import React from 'react';
 import { StyleSheet, View, SectionList, Text } from 'react-native';
 import ListItem from '../../components/shared/list-item';
+import { FactionContext } from '../../contexts/faction-context';
 import { sizes, spacing } from '../../helpers/sizes';
 import useCustomTheme from '../../hooks/use-custom-theme';
-import { IFaction } from '../../models/faction';
-import { ISectionListData } from '../../models/shared';
 import { CustomTheme } from '../../models/theme';
-import { getListOfFactions } from '../../services/faction-service';
 import { FactionsRootStackParamList } from '../FactionsScreen';
 
 type Props = StackScreenProps<FactionsRootStackParamList, 'FactionList'>;
 
 const FactionListScreen = ({ navigation }: Props) => {
-  const [factionList, setFactionList] = React.useState<ISectionListData<IFaction>[]>([]);
-  const [refreshing, setRefreshing] = React.useState(false);
+  const { factionList, refreshData, refreshing } = React.useContext(FactionContext);
 
   const theme = useCustomTheme();
   const styles = themedStyles(theme);
-
-  const fetchData = React.useCallback(async () => {
-    setRefreshing(true);
-    const data = await getListOfFactions();
-    if (data) {
-      setFactionList(data);
-    }
-    setRefreshing(false);
-  }, [setRefreshing, setFactionList]);
-
-  React.useEffect(() => {
-    fetchData();
-  }, [fetchData]);
 
   return (
     <SectionList
@@ -47,7 +31,7 @@ const FactionListScreen = ({ navigation }: Props) => {
       style={styles.container}
       renderSectionHeader={({ section: { title } }) => <Text style={styles.header}>{title}</Text>}
       refreshing={refreshing}
-      onRefresh={fetchData}
+      onRefresh={refreshData}
       ItemSeparatorComponent={() => <View style={styles.separator} />}
     />
   );

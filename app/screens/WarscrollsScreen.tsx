@@ -27,7 +27,10 @@ const WarscrollsScreen = () => {
         <Stack.Screen
           name="WarscrollDetails"
           component={WarscrollDetailsScreen}
-          options={{ title: '' }}
+          options={{
+            title: '',
+            headerRight: () => <WarscrollRefreshButton />,
+          }}
         />
       </Stack.Navigator>
     </WarscrollProvider>

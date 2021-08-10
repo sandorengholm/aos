@@ -44,7 +44,7 @@ export const TableRow: React.FC<RowProps> = React.memo((props) => {
   const styles = themedStyles(theme);
 
   const asteriskSymbol = () => (
-    <View style={styles.asterixContainer}>
+    <View style={styles.asteriskContainer}>
       <FontAwesome5 name="certificate" size={10} color={theme.colors.text} />
     </View>
   );
@@ -59,7 +59,7 @@ export const TableRow: React.FC<RowProps> = React.memo((props) => {
 
 const themedStyles = (theme: CustomTheme) =>
   StyleSheet.create({
-    asterixContainer: {
+    asteriskContainer: {
       alignItems: 'center',
     },
     container: {

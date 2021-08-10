@@ -5,6 +5,7 @@ import { FactionsRootStackParamList } from '../FactionsScreen';
 import ListItem from '../../components/shared/list-item';
 import useCustomTheme from '../../hooks/use-custom-theme';
 import { CustomTheme } from '../../models/theme';
+import { FactionContext } from '../../contexts/faction-context';
 
 type Props = StackScreenProps<FactionsRootStackParamList, 'FactionDetails'>;
 
