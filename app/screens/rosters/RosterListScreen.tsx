@@ -55,6 +55,7 @@ const themedStyles = (theme: CustomTheme) =>
     title: {
       color: theme.colors.text,
       fontSize: sizes.font.medium,
+      fontWeight: 'bold',
       marginBottom: spacing(4),
       textAlign: 'center',
     },
