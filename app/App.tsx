@@ -3,7 +3,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import ListsScreen from './screens/ListsScreen';
+import RostersScreen from './screens/RostersScreen';
 import BattleplansTab from './screens/BattleplansScreen';
 import FactionsScreen from './screens/FactionsScreen';
 import WarscrollsScreen from './screens/WarscrollsScreen';
@@ -35,7 +35,7 @@ const App = () => {
                 case 'Factions':
                   iconName = focused ? 'flag' : 'flag-outline';
                   break;
-                case 'Lists':
+                case 'Rosters':
                   iconName = focused ? 'hammer' : 'hammer-outline';
                   break;
                 case 'Battleplans':
@@ -68,7 +68,7 @@ const App = () => {
         >
           <Tab.Screen name="Warscrolls" component={WarscrollsScreen} />
           <Tab.Screen name="Factions" component={FactionsScreen} />
-          <Tab.Screen name="Lists" component={ListsScreen} />
+          <Tab.Screen name="Rosters" component={RostersScreen} />
           <Tab.Screen name="Battleplans" component={BattleplansTab} />
           <Tab.Screen name="Settings" component={SettingsScreen} />
         </Tab.Navigator>

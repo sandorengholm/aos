@@ -8,7 +8,7 @@ export type SettingsRootStackParamList = {
 
 const Stack = createStackNavigator<SettingsRootStackParamList>();
 
-const SettingsTab = () => (
+const SettingsScreen = () => (
   <Stack.Navigator initialRouteName="SettingsList">
     <Stack.Screen
       name="SettingsList"
@@ -18,4 +18,4 @@ const SettingsTab = () => (
   </Stack.Navigator>
 );
 
-export default React.memo(SettingsTab);
+export default React.memo(SettingsScreen);
