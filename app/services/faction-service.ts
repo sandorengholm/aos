@@ -202,9 +202,13 @@ export const getListOfFactions = async () => {
       }
     );
 
-    let json = await response.json();
+    const json = await response.json();
+    const data = json.data.grandAlliances as ISectionListData<IFaction>[];
 
-    return json.data.grandAlliances as ISectionListData<IFaction>[];
+    return data.map((grandAlliance) => ({
+      ...grandAlliance,
+      data: grandAlliance.data.sort((a, b) => a.name.localeCompare(b.name)),
+    }));
   } catch (error) {
     console.error(error);
   }

@@ -73,7 +73,6 @@ const FactionsScreen = () => {
           component={FactionDetailsScreen}
           options={({ route }) => ({
             title: route.params.faction.name,
-            headerRight: () => <FactionRefreshButton />,
           })}
         />
         <Stack.Screen
@@ -81,7 +80,6 @@ const FactionsScreen = () => {
           component={FactionDetailsBattleTraitsScreen}
           options={({ route }) => ({
             title: route.params.title,
-            headerRight: () => <FactionRefreshButton />,
           })}
         />
         <Stack.Screen
@@ -89,7 +87,6 @@ const FactionsScreen = () => {
           component={FactionDetailsSubfactionsScreen}
           options={({ route }) => ({
             title: route.params.title,
-            headerRight: () => <FactionRefreshButton />,
           })}
         />
         <Stack.Screen
@@ -98,7 +95,6 @@ const FactionsScreen = () => {
           options={({ route }) => ({
             title: route.params.title,
             headerBackTitle: '',
-            headerRight: () => <FactionRefreshButton />,
           })}
         />
         <Stack.Screen
@@ -106,7 +102,6 @@ const FactionsScreen = () => {
           component={FactionDetailsWarscrolls}
           options={({ route }) => ({
             title: route.params.title,
-            headerRight: () => <FactionRefreshButton />,
           })}
         />
         <Stack.Screen
@@ -114,7 +109,6 @@ const FactionsScreen = () => {
           component={WarscrollDetailsScreen}
           options={{
             title: '',
-            headerRight: () => <FactionRefreshButton />,
           }}
         />
         <Stack.Screen
@@ -122,7 +116,6 @@ const FactionsScreen = () => {
           component={FactionDetailsFactionTerrainRules}
           options={({ route }) => ({
             title: route.params.title,
-            headerRight: () => <FactionRefreshButton />,
           })}
         />
         <Stack.Screen
@@ -130,7 +123,6 @@ const FactionsScreen = () => {
           component={FactionDetailsRuleSectionScreen}
           options={({ route }) => ({
             title: route.params.title,
-            headerRight: () => <FactionRefreshButton />,
           })}
         />
       </Stack.Navigator>

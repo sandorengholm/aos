@@ -22,9 +22,7 @@ const App = () => {
   return (
     <SettingsProvider>
       <StatusBar style={'auto'} />
-      <NavigationContainer
-        theme={scheme === 'dark' ? CustomDarkTheme : CustomDefaultTheme}
-      >
+      <NavigationContainer theme={scheme === 'dark' ? CustomDarkTheme : CustomDefaultTheme}>
         <Tab.Navigator
           screenOptions={({ route }) => ({
             tabBarIcon: ({ focused, color }) => {
@@ -32,9 +30,7 @@ const App = () => {
 
               switch (route.name) {
                 case 'Warscrolls':
-                  iconName = focused
-                    ? 'document-text'
-                    : 'document-text-outline';
+                  iconName = focused ? 'document-text' : 'document-text-outline';
                   break;
                 case 'Factions':
                   iconName = focused ? 'flag' : 'flag-outline';
@@ -61,9 +57,7 @@ const App = () => {
                 ? CustomDarkTheme.colors.primary
                 : CustomDefaultTheme.colors.primary,
             inactiveTintColor:
-              scheme === 'dark'
-                ? CustomDarkTheme.colors.text
-                : CustomDefaultTheme.colors.text,
+              scheme === 'dark' ? CustomDarkTheme.colors.text : CustomDefaultTheme.colors.text,
             labelStyle: {
               fontSize: 9,
             },
