@@ -4,7 +4,6 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { BattleplanContext } from '../../../contexts/battleplan-context';
 import { spacing } from '../../../helpers/sizes';
 import useCustomTheme from '../../../hooks/use-custom-theme';
-import { CustomTheme } from '../../../models/theme';
 
 interface Props {
   navigation: any;
@@ -14,7 +13,6 @@ const BattleplanRandomButton = ({ navigation }: Props) => {
   const { battleplans } = React.useContext(BattleplanContext);
 
   const theme = useCustomTheme();
-  const styles = themedStyles(theme);
 
   const onPress = () => {
     navigation.navigate('BattleplanDetails', {
@@ -33,11 +31,10 @@ const BattleplanRandomButton = ({ navigation }: Props) => {
   );
 };
 
-const themedStyles = (theme: CustomTheme) =>
-  StyleSheet.create({
-    touchable: {
-      paddingHorizontal: spacing(4),
-    },
-  });
+const styles = StyleSheet.create({
+  touchable: {
+    paddingHorizontal: spacing(4),
+  },
+});
 
 export default React.memo(BattleplanRandomButton);
