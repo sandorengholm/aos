@@ -23,7 +23,11 @@ const BattleplanRandomButton = ({ navigation }: Props) => {
   };
 
   return (
-    <TouchableHighlight style={styles.touchable} onPress={onPress}>
+    <TouchableHighlight
+      underlayColor={theme.colors.card}
+      style={styles.touchable}
+      onPress={onPress}
+    >
       <FontAwesome5 name="dice" size={20} color={theme.colors.primary} />
     </TouchableHighlight>
   );
